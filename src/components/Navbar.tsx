@@ -98,7 +98,7 @@ const Navbar = () => {
                 className="flex items-center justify-between w-full py-2 font-medium text-white"
                 onClick={() => setShowServices(!showServices)}
               >
-                Services ▼
+                Services
                 <ChevronDown className={`w-4 h-4 transition-transform ${showServices ? 'rotate-180' : ''}`} />
               </button>
               {showServices && (

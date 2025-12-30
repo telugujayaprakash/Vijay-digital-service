@@ -9,46 +9,52 @@ const services = [
     title: 'SEO Optimization',
     description: 'Dominate search rankings with our proven SEO strategies.',
     features: ['Keyword Research', 'On-Page SEO', 'Technical SEO', 'Link Building', 'Local SEO'],
+    path: '/services/seo'
   },
   {
     icon: Share2,
     title: 'Social Media Marketing',
     description: 'Build an engaged community across all platforms.',
     features: ['Content Strategy', 'Community Management', 'Paid Social', 'Influencer Marketing', 'Analytics'],
+    path: '/services/social-media'
   },
   {
     icon: Mail,
     title: 'Email Marketing',
     description: 'Convert leads into loyal customers with personalized campaigns.',
     features: ['Campaign Strategy', 'Automation', 'A/B Testing', 'Segmentation', 'Analytics'],
+    path: '/services/email-marketing'
   },
   {
     icon: Target,
     title: 'PPC Advertising',
     description: 'Maximize your ad spend ROI with data-driven campaigns.',
     features: ['Google Ads', 'Meta Ads', 'Retargeting', 'Display Ads', 'Shopping Ads'],
+    path: '/services/ppc'
   },
   {
     icon: PenTool,
     title: 'Content Marketing',
     description: 'Tell your story through compelling content.',
     features: ['Blog Writing', 'Video Content', 'Infographics', 'Case Studies', 'Whitepapers'],
+    path: '/services/content-marketing'
   },
   {
     icon: BarChart3,
-    title: 'Analytics & Reporting',
-    description: 'Make informed decisions with comprehensive analytics.',
-    features: ['Custom Dashboards', 'KPI Tracking', 'ROI Analysis', 'Competitor Analysis', 'Monthly Reports'],
+    title: 'Brand Strategy',
+    description: 'Build a memorable brand that drives business growth.',
+    features: ['Brand Positioning', 'Visual Identity', 'Brand Messaging', 'Market Research', 'Brand Guidelines'],
+    path: '/services/brand-strategy'
   },
 ];
 
 const Services = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white text-black">
       <Navbar />
       <main className="pt-20">
         {/* Hero */}
-        <section className="py-24 hero-gradient">
+        <section className="py-24 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
           <div className="container mx-auto px-4 text-center">
             <span className="inline-block px-4 py-2 rounded-full bg-accent/10 text-accent font-medium text-sm mb-4">
               Our Services
@@ -66,24 +72,26 @@ const Services = () => {
         <section className="py-24">
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {services.map((service) => (
-                <div key={service.title} className="bg-card rounded-2xl p-8 border border-border/50 card-hover">
-                  <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-6">
-                    <service.icon className="w-7 h-7 text-accent" />
+              {services.map((service, index) => (
+                <div key={service.title} className="bg-gradient-to-br from-white via-gray-50 to-blue-50/30 rounded-2xl p-8 border border-cyan-200/50 shadow-lg hover:shadow-2xl card-hover transition-all duration-500 hover:-translate-y-2 group hover:border-cyan-300/70">
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center mb-6 shadow-lg shadow-cyan-400/30 group-hover:shadow-cyan-400/50 group-hover:scale-110 transition-all duration-300">
+                    <service.icon className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-                  <p className="text-muted-foreground mb-6">{service.description}</p>
+                  <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-cyan-700 transition-colors duration-300">{service.title}</h3>
+                  <p className="text-gray-600 mb-6 group-hover:text-gray-700 transition-colors duration-300">{service.description}</p>
                   <ul className="space-y-3 mb-6">
                     {service.features.map((feature) => (
-                      <li key={feature} className="flex items-center gap-2 text-sm">
-                        <CheckCircle className="w-4 h-4 text-accent" />
+                      <li key={feature} className="flex items-center gap-2 text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-300">
+                        <CheckCircle className="w-4 h-4 text-cyan-500 group-hover:text-cyan-600 transition-colors duration-300" />
                         {feature}
                       </li>
                     ))}
                   </ul>
-                  <Button variant="outline" className="w-full">
-                    Learn More <ArrowRight className="w-4 h-4" />
-                  </Button>
+                  <a href={service.path} className="w-full">
+                    <Button className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 transition-all duration-300 transform hover:scale-105 border border-cyan-400/50 hover:border-cyan-400/70 group-hover:shadow-xl">
+                      Learn More <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                    </Button>
+                  </a>
                 </div>
               ))}
             </div>

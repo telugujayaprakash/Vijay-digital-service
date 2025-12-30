@@ -89,16 +89,16 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="lg:hidden bg-gradient-to-b from-gray-900/95 to-black/95 backdrop-blur-xl border-t border-white/20 animate-slide-in shadow-lg">
+        <div className="lg:hidden bg-gradient-to-b from-gray-900/95 to-black/95 backdrop-blur-xl border-t border-white/20 animate-slide-in shadow-lg text-white">
           <div className="container mx-auto px-4 py-4 space-y-4">
             <Link to="/" className="block py-2 font-medium" onClick={() => setIsOpen(false)}>Home</Link>
             
             <div>
               <button 
-                className="flex items-center justify-between w-full py-2 font-medium"
+                className="flex items-center justify-between w-full py-2 font-medium text-white"
                 onClick={() => setShowServices(!showServices)}
               >
-                Services
+                Services ▼
                 <ChevronDown className={`w-4 h-4 transition-transform ${showServices ? 'rotate-180' : ''}`} />
               </button>
               {showServices && (

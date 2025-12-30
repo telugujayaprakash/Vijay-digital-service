@@ -218,7 +218,7 @@ const Footer = () => {
         <div className='container mx-auto px-4 py-6'>
           <div className='flex flex-col md:flex-row items-center justify-between gap-4'>
             <p className='text-gray-400 text-sm'>
-              © 2024 DigiPro. All rights reserved.
+              © 2025 DigiPro. All rights reserved.
             </p>
             <div className='flex gap-6 text-sm'>
               <a

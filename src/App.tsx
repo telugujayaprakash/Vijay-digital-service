@@ -18,6 +18,7 @@ const EmailMarketingPage = lazy(() => import("./pages/EmailMarketingService"));
 const PPCPage = lazy(() => import("./pages/PPCService"));
 const ContentMarketingPage = lazy(() => import("./pages/ContentMarketingService"));
 const BrandStrategyPage = lazy(() => import("./pages/BrandStrategyService"));
+const YouTubePromotionPage = lazy(() => import("./pages/YouTubePromotionService"));
 
 const LoadingFallback = () => (
   <div className="flex items-center justify-center min-h-screen">
@@ -39,6 +40,7 @@ const App = () => (
           <Route path="/services/ppc" element={<PPCPage />} />
           <Route path="/services/content-marketing" element={<ContentMarketingPage />} />
           <Route path="/services/brand-strategy" element={<BrandStrategyPage />} />
+          <Route path="/services/youtube-promotion" element={<YouTubePromotionPage />} />
           <Route path="/clients" element={<ClientsPage />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />

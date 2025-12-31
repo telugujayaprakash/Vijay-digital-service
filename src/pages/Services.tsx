@@ -1,7 +1,7 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { Search, Share2, Mail, Target, PenTool, BarChart3, ArrowRight, CheckCircle } from 'lucide-react';
+import { Search, Share2, Mail, Target, PenTool, BarChart3, Play, ArrowRight, CheckCircle } from 'lucide-react';
 
 const services = [
   {
@@ -45,6 +45,13 @@ const services = [
     description: 'Build a memorable brand that drives business growth.',
     features: ['Brand Positioning', 'Visual Identity', 'Brand Messaging', 'Market Research', 'Brand Guidelines'],
     path: '/services/brand-strategy'
+  },
+  {
+    icon: Play,
+    title: 'YouTube Promotion',
+    description: 'Grow your channel and maximize video engagement with expert strategies.',
+    features: ['Channel Optimization', 'Video SEO', 'Thumbnail Design', 'Community Management', 'Analytics & Growth'],
+    path: '/services/youtube-promotion'
   },
 ];
 

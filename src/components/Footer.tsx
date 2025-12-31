@@ -7,7 +7,11 @@ import {
   Facebook,
   Twitter,
   Linkedin,
-  Instagram
+  Instagram,
+  Youtube,
+  TwitterIcon,
+  Share,
+  Pin
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
@@ -44,14 +48,16 @@ const Footer = () => {
       {/* Main Footer */}
       <div className='border-t border-cyan-400/20 text-white'>
         <div className='container mx-auto px-4 py-16'>
-          <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-12'>
+          <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
             {/* Brand */}
             <div>
               <Link to='/' className='flex items-center gap-2 mb-6 group'>
                 <div className='w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center shadow-lg shadow-cyan-400/30 group-hover:shadow-cyan-400/50 transition-all duration-300'>
                   <BarChart3 className='w-6 h-6 text-white' />
                 </div>
-                <span className='text-xl font-bold bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent group-hover:from-cyan-200 group-hover:to-blue-300 transition-all duration-300'>DigiPro</span>
+                <span className='text-xl font-bold bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent group-hover:from-cyan-200 group-hover:to-blue-300 transition-all duration-300'>
+                  Vijay Digital Marketing
+                </span>
               </Link>
               <p className='text-gray-300 mb-6'>
                 Empowering businesses with data-driven digital marketing
@@ -59,35 +65,62 @@ const Footer = () => {
               </p>
               <div className='flex gap-4'>
                 <a
-                  href='#'
-                  className='w-10 h-10 rounded-lg bg-cyan-400/20 border border-cyan-400/30 flex items-center justify-center hover:bg-gradient-to-r hover:from-cyan-500/30 hover:to-blue-500/30 hover:border-cyan-400/50 text-cyan-300 hover:text-white transition-all duration-300 shadow-lg shadow-cyan-400/10 hover:shadow-cyan-400/20'
+                  href='https://www.instagram.com/vijaydigitalmarketingservice/'
+                  target='_blank'
+                  className='w-10 h-10 flex items-center justify-center text-white'
+                >
+                  <Instagram className='w-5 h-5' />
+                </a>
+                <a
+                  href='https://www.facebook.com/profile.php?id=61585560825920'
+                  target='_blank'
+                  className='w-10 h-10 flex items-center justify-center  text-white'
                 >
                   <Facebook className='w-5 h-5' />
                 </a>
                 <a
-                  href='#'
-                  className='w-10 h-10 rounded-lg bg-cyan-400/20 border border-cyan-400/30 flex items-center justify-center hover:bg-gradient-to-r hover:from-cyan-500/30 hover:to-blue-500/30 hover:border-cyan-400/50 text-cyan-300 hover:text-white transition-all duration-300 shadow-lg shadow-cyan-400/10 hover:shadow-cyan-400/20'
+                  href='https://www.youtube.com/@vijaydigitalservice'
+                  target='_blank'
+                  className='w-10 h-10 flex items-center justify-center  text-white'
                 >
-                  <Twitter className='w-5 h-5' />
+                  <Youtube className='w-5 h-5' />
                 </a>
                 <a
-                  href='#'
-                  className='w-10 h-10 rounded-lg bg-cyan-400/20 border border-cyan-400/30 flex items-center justify-center hover:bg-gradient-to-r hover:from-cyan-500/30 hover:to-blue-500/30 hover:border-cyan-400/50 text-cyan-300 hover:text-white transition-all duration-300 shadow-lg shadow-cyan-400/10 hover:shadow-cyan-400/20'
+                  href='https://www.linkedin.com/in/vijay-digitalservices-8a40033a4/'
+                  target='_blank'
+                  className='w-10 h-10 flex items-center justify-center  text-white'
                 >
                   <Linkedin className='w-5 h-5' />
                 </a>
                 <a
-                  href='#'
-                  className='w-10 h-10 rounded-lg bg-cyan-400/20 border border-cyan-400/30 flex items-center justify-center hover:bg-gradient-to-r hover:from-cyan-500/30 hover:to-blue-500/30 hover:border-cyan-400/50 text-cyan-300 hover:text-white transition-all duration-300 shadow-lg shadow-cyan-400/10 hover:shadow-cyan-400/20'
+                  href='https://x.com/digitalser87081'
+                  target='_blank'
+                  className='w-10 h-10 flex items-center justify-center  text-white'
                 >
-                  <Instagram className='w-5 h-5' />
+                  <TwitterIcon className='w-5 h-5' fill='' />
+                </a>
+                <a
+                  href='#'
+                  target='_blank'
+                  className='w-10 h-10 flex items-center justify-center  text-white'
+                >
+                  <Share className='w-5 h-5' />
+                </a>
+                <a
+                  href='#'
+                  target='_blank'
+                  className='w-10 h-10 flex items-center justify-center  text-white'
+                >
+                  <Pin className='w-5 h-5' />
                 </a>
               </div>
             </div>
 
             {/* Quick Links */}
             <div>
-              <h3 className='font-bold text-lg mb-6 text-cyan-300'>Quick Links</h3>
+              <h3 className='font-bold text-lg mb-6 text-cyan-300'>
+                Quick Links
+              </h3>
               <ul className='space-y-4'>
                 <li>
                   <Link
@@ -138,7 +171,7 @@ const Footer = () => {
               <ul className='space-y-4'>
                 <li>
                   <a
-                    href='#'
+                    href='https://www.vijaydigitalservices.com/services/seo'
                     className='text-gray-300 hover:text-cyan-300 transition-colors duration-300'
                   >
                     SEO Optimization
@@ -146,7 +179,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href='#'
+                    href='https://www.vijaydigitalservices.com/services/social-media'
                     className='text-gray-300 hover:text-cyan-300 transition-colors duration-300'
                   >
                     Social Media Marketing
@@ -154,7 +187,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href='#'
+                    href='https://www.vijaydigitalservices.com/services/ppc'
                     className='text-gray-300 hover:text-cyan-300 transition-colors duration-300'
                   >
                     PPC Advertising
@@ -162,7 +195,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href='#'
+                    href='https://www.vijaydigitalservices.com/services/content-marketing'
                     className='text-gray-300 hover:text-cyan-300 transition-colors duration-300'
                   >
                     Content Marketing
@@ -170,10 +203,18 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href='#'
+                    href='https://www.vijaydigitalservices.com/services/email-marketing'
                     className='text-gray-300 hover:text-cyan-300 transition-colors duration-300'
                   >
                     Email Marketing
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href='https://www.vijaydigitalservices.com/services/youtube-promotion'
+                    className='text-gray-300 hover:text-cyan-300 transition-colors duration-300'
+                  >
+                    YouTube Promotion
                   </a>
                 </li>
               </ul>
@@ -181,12 +222,14 @@ const Footer = () => {
 
             {/* Contact */}
             <div>
-              <h3 className='font-bold text-lg mb-6 text-cyan-300'>Contact Us</h3>
+              <h3 className='font-bold text-lg mb-6 text-cyan-300'>
+                Contact Us
+              </h3>
               <ul className='space-y-4'>
                 <li className='flex items-start gap-3'>
                   <MapPin className='w-5 h-5 text-cyan-400 mt-1' />
                   <span className='text-gray-300'>
-                    123 Marketing Street, Digital City, DC 10001
+                    Hyderabad, Telangana, India
                   </span>
                 </li>
                 <li className='flex items-center gap-3'>
@@ -195,16 +238,16 @@ const Footer = () => {
                     href='tel:+1234567890'
                     className='text-gray-300 hover:text-cyan-300 transition-colors duration-300'
                   >
-                    +1 (234) 567-890
+                    +91 8328022043
                   </a>
                 </li>
                 <li className='flex items-center gap-3'>
                   <Mail className='w-5 h-5 text-cyan-400' />
                   <a
-                    href='mailto:hello@digipro.com'
+                    href='mailto:vijaydigitalmarketingservice@gmail.com'
                     className='text-gray-300 hover:text-cyan-300 transition-colors duration-300'
                   >
-                    hello@digipro.com
+                    vijaydigitalmarketingservice@gmail.com
                   </a>
                 </li>
               </ul>
@@ -218,7 +261,7 @@ const Footer = () => {
         <div className='container mx-auto px-4 py-6'>
           <div className='flex flex-col md:flex-row items-center justify-between gap-4'>
             <p className='text-gray-400 text-sm'>
-              © 2025 DigiPro. All rights reserved.
+              © 2025 Vijay Digital Marketing Services. All rights reserved.
             </p>
             <div className='flex gap-6 text-sm'>
               <a

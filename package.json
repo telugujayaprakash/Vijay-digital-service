@@ -1,8 +1,8 @@
 {
-  "name": "digital-spark-studio",
+  "name": "Vijay Digital Marketing Services",
   "private": true,
   "version": "1.0.0",
-  "description": "Digital marketing agency website built with React, TypeScript, and Vite",
+  "description": "Vijay Digital Services is a leading digital marketing agency offering SEO, PPC, social media marketing, youtube promotion, and content marketing services. Grow your business with data-driven strategies.",
   "type": "module",
   "scripts": {
     "dev": "vite",

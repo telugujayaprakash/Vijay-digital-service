@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import {
@@ -12,7 +12,9 @@ import {
   Target,
   PenTool,
   Megaphone,
-  Play
+  Play,
+  Code,
+  TestTube
 } from 'lucide-react'
 
 const services = [
@@ -57,12 +59,25 @@ const services = [
     icon: Play,
     description: 'Grow your channel and maximize video engagement',
     path: '/services/youtube-promotion'
+  },
+  {
+    name: 'Web Development',
+    icon: Code,
+    description: 'Custom web solutions and modern development',
+    path: '/services/web-development'
+  },
+  {
+    name: 'Application Testing',
+    icon: TestTube,
+    description: 'Comprehensive testing and quality assurance',
+    path: '/services/application-testing'
   }
 ]
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [showServices, setShowServices] = useState(false)
+  const servicesTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   return (
     <nav className='fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-purple-900/90 via-blue-900/90 to-indigo-900/90 backdrop-blur-xl border-b border-white/20 shadow-lg shadow-purple-500/20'>
@@ -90,8 +105,21 @@ const Navbar = () => {
             {/* Services Dropdown */}
             <div
               className='relative'
-              onMouseEnter={() => setShowServices(true)}
-              onMouseLeave={() => setShowServices(false)}
+              onMouseEnter={() => {
+                setShowServices(true)
+                // Clear any pending hide timeout
+                if (servicesTimeoutRef.current) {
+                  clearTimeout(servicesTimeoutRef.current)
+                  servicesTimeoutRef.current = null
+                }
+              }}
+              onMouseLeave={() => {
+                // Add delay before hiding to allow mouse movement to dropdown
+                servicesTimeoutRef.current = setTimeout(() => {
+                  setShowServices(false)
+                  servicesTimeoutRef.current = null
+                }, 300)
+              }}
             >
               <button className='nav-link font-medium flex items-center gap-1 text-white/90 hover:text-cyan-300 transition-all duration-300'>
                 Services
@@ -103,27 +131,48 @@ const Navbar = () => {
               </button>
 
               {showServices && (
-                <div className='absolute top-full left-1/2 -translate-x-1/2 pt-4 animate-slide-in'>
-                  <div className='bg-gradient-to-br from-gray-900/95 to-gray-800/95 backdrop-blur-xl rounded-xl shadow-2xl border border-white/20 p-4 w-[500px] grid grid-cols-2 gap-2 shadow-purple-500/20'>
-                    {services.map((service, index) => (
-                      <Link
-                        key={service.name}
-                        to={service.path}
-                        className='flex items-start gap-3 p-3 rounded-lg hover:bg-gradient-to-r hover:from-cyan-500/20 hover:to-blue-500/20 transition-all duration-300 group border border-transparent hover:border-cyan-400/30'
-                      >
-                        <div className='w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-400/20 to-blue-500/20 flex items-center justify-center group-hover:from-cyan-400/30 group-hover:to-blue-500/30 transition-all duration-300 border border-cyan-400/20 group-hover:border-cyan-400/40'>
-                          <service.icon className='w-5 h-5 text-cyan-300 group-hover:text-cyan-200 transition-colors' />
-                        </div>
-                        <div>
-                          <p className='font-medium text-white group-hover:text-cyan-100 transition-colors'>
-                            {service.name}
-                          </p>
-                          <p className='text-sm text-gray-400 group-hover:text-gray-300 transition-colors'>
-                            {service.description}
-                          </p>
-                        </div>
-                      </Link>
-                    ))}
+                <div
+                  className='fixed left-0 right-0 top-full mt-2 bg-gradient-to-br from-slate-900/98 via-gray-900/98 to-slate-800/98 backdrop-blur-xl border-t border-slate-700/50 shadow-2xl animate-slide-in z-50'
+                  onMouseEnter={() => {
+                    // Clear hide timeout when mouse enters dropdown
+                    if (servicesTimeoutRef.current) {
+                      clearTimeout(servicesTimeoutRef.current)
+                      servicesTimeoutRef.current = null
+                    }
+                  }}
+                  onMouseLeave={() => {
+                    // Hide dropdown when mouse leaves dropdown area
+                    setShowServices(false)
+                    if (servicesTimeoutRef.current) {
+                      clearTimeout(servicesTimeoutRef.current)
+                      servicesTimeoutRef.current = null
+                    }
+                  }}
+                >
+                  <div className='container mx-auto px-6 py-8'>
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+                      {services.map((service, index) => (
+                        <Link
+                          key={service.name}
+                          to={service.path}
+                          className='group block'
+                        >
+                          <div className='flex items-center gap-4 p-4 rounded-lg hover:bg-slate-800/50 transition-all duration-300'>
+                            <div className='w-12 h-12 rounded-lg bg-gradient-to-br from-cyan-400/20 to-blue-500/20 flex items-center justify-center group-hover:from-cyan-400/30 group-hover:to-blue-500/30 transition-all duration-300 border border-cyan-400/20 group-hover:border-cyan-400/40'>
+                              <service.icon className='w-6 h-6 text-cyan-300 group-hover:text-cyan-200 transition-colors' />
+                            </div>
+                            <div className='flex-1'>
+                              <h3 className='text-lg font-semibold text-white group-hover:text-cyan-100 transition-colors duration-300 mb-1'>
+                                {service.name}
+                              </h3>
+                              <p className='text-sm text-slate-400 group-hover:text-slate-300 transition-colors duration-300'>
+                                {service.description}
+                              </p>
+                            </div>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 </div>
               )}

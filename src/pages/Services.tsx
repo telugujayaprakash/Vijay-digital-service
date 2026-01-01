@@ -1,7 +1,7 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { Search, Share2, Mail, Target, PenTool, BarChart3, Play, ArrowRight, CheckCircle } from 'lucide-react';
+import { Search, Share2, Mail, Target, PenTool, BarChart3, Play, Code, TestTube, ArrowRight, CheckCircle } from 'lucide-react';
 
 const services = [
   {
@@ -52,6 +52,20 @@ const services = [
     description: 'Grow your channel and maximize video engagement with expert strategies.',
     features: ['Channel Optimization', 'Video SEO', 'Thumbnail Design', 'Community Management', 'Analytics & Growth'],
     path: '/services/youtube-promotion'
+  },
+  {
+    icon: Code,
+    title: 'Web Development',
+    description: 'Custom web solutions built with modern technologies and frameworks.',
+    features: ['Full-Stack Development', 'Responsive Design', 'Security Implementation', 'Performance Optimization'],
+    path: '/services/web-development'
+  },
+  {
+    icon: TestTube,
+    title: 'Application Testing',
+    description: 'Comprehensive testing services ensuring bug-free, secure applications.',
+    features: ['Automated Testing', 'Security Testing', 'Mobile App Testing', 'Performance Testing'],
+    path: '/services/application-testing'
   },
 ];
 

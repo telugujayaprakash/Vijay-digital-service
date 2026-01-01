@@ -141,7 +141,7 @@ const Contact = () => {
                         Phone
                       </h3>
                       <p className='text-gray-300 group-hover:text-gray-200 transition-colors duration-300'>
-                        +91 8328022043
+                        +91 9703114043
                       </p>
                     </div>
                   </div>

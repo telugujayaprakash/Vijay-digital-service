@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
+import logo from '../../public/favicon.ico'
 import {
   Menu,
   X,
@@ -86,7 +87,8 @@ const Navbar = () => {
           {/* Logo */}
           <Link to='/' className='flex items-center gap-2 group'>
             <div className='w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center shadow-lg shadow-cyan-400/30 group-hover:shadow-cyan-400/50 transition-all duration-300'>
-              <BarChart3 className='w-6 h-6 text-white' />
+              {/* <BarChart3 className='w-6 h-6 text-white' /> */}
+              <img src={logo} alt='' className='w-10 h-10 text-white' />
             </div>
             <span className='text-xl font-bold bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent group-hover:from-cyan-200 group-hover:to-blue-300 transition-all duration-300'>
               Vijay Digital Services

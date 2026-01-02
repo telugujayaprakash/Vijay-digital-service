@@ -23,15 +23,23 @@ const WebDevelopmentPage = lazy(() => import("./pages/WebDevelopmentService"));
 const ApplicationTestingPage = lazy(() => import("./pages/ApplicationTestingService"));
 
 const LoadingFallback = () => (
-  <div className="flex items-center justify-center min-h-screen">
-    <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+  <div className="flex items-center justify-center min-h-screen bg-gray-50">
+    <div className="text-center">
+      <div className="animate-spin rounded-full h-6 w-6 border-2 border-blue-500 border-t-transparent mx-auto"></div>
+      <p className="text-gray-500 mt-2 text-sm">Loading...</p>
+    </div>
   </div>
 );
 
 const App = () => (
   <TooltipProvider>
     <Sonner />
-    <BrowserRouter>
+    <BrowserRouter
+      future={{
+        v7_startTransition: true,
+        v7_relativeSplatPath: true,
+      }}
+    >
       <Suspense fallback={<LoadingFallback />}>
         <Routes>
           <Route path="/" element={<Index />} />

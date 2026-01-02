@@ -6,21 +6,21 @@ const testimonials = [
     name: 'Sarah Mitchell',
     role: 'CEO, TechFlow',
     image: 'SM',
-    content: 'DigiPro transformed our online presence completely. Our organic traffic increased by 300% within six months, and the quality of leads has never been better.',
+    content: 'Vijay Digital Services transformed our online presence completely. Our organic traffic increased by 300% within six months, and the quality of leads has never been better.',
     rating: 5,
   },
   {
     name: 'Michael Chen',
     role: 'Marketing Director, Nova Systems',
     image: 'MC',
-    content: 'The team at DigiPro truly understands digital marketing. Their data-driven approach and creative strategies have helped us outperform our competitors.',
+    content: 'The team at Vijay Digital Services truly understands digital marketing. Their data-driven approach and creative strategies have helped us outperform our competitors.',
     rating: 5,
   },
   {
     name: 'Emily Rodriguez',
     role: 'Founder, Spark Media',
     image: 'ER',
-    content: 'Working with DigiPro has been a game-changer for our business. Their PPC campaigns delivered an ROI that exceeded our expectations by 400%.',
+    content: 'Working with Vijay Digital Services has been a game-changer for our business. Their PPC campaigns delivered an ROI that exceeded our expectations by 400%.',
     rating: 5,
   },
   {
@@ -61,7 +61,7 @@ const Testimonials = () => {
           </h2>
           <p className="text-lg text-gray-300">
             Don't just take our word for it. Here's what our clients have to say
-            about their experience working with DigiPro.
+            about their experience working with Vijay Digital Services.
           </p>
         </div>
 

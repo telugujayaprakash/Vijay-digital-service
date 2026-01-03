@@ -76,6 +76,7 @@ const services = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const [showServices, setShowServices] = useState(false)
 
   return (
     <nav className='fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-purple-900/90 via-blue-900/90 to-indigo-900/90 backdrop-blur-xl border-b border-white/20 shadow-lg shadow-purple-500/20'>
@@ -188,21 +189,36 @@ const Navbar = () => {
               Home
             </Link>
 
-            <div className='space-y-2'>
-              <div className='font-medium text-white py-2'>Services</div>
-              <div className='pl-4 space-y-2'>
-                {services.map(service => (
-                  <Link
+            <div>
+                <button
+                  className='flex items-center justify-between w-full py-2 font-medium text-white'
+                  onClick={() => setShowServices(!showServices)}
+                >
+                  <span>Services</span>
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform ${
+                      showServices ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+              {showServices && (
+                <div className='pl-4 space-y-2 mt-2'>
+                  {services.map(service => (
+                    <Link
                     key={service.name}
                     to={service.path}
                     className='flex items-center gap-2 py-2 text-gray-300 hover:text-white transition-colors'
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => {
+                      setIsOpen(false)
+                      setShowServices(false)
+                    }}
                   >
                     <service.icon className='w-4 h-4 text-cyan-400' />
                     {service.name}
                   </Link>
-                ))}
-              </div>
+                  ))}
+                </div>
+              )}
             </div>
 
             <Link

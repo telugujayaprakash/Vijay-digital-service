@@ -33,6 +33,19 @@ const founder = {
 
 const team = [
   {
+    name: 'Mani Ratnam',
+    role: 'Content Creator',
+    image: '/api/placeholder/300/300',
+    bio: 'Content Creator with a keen eye for detail and a passion for storytelling.',
+    experience: '9+ years',
+    expertise: [
+      'Content Creation',
+      'Innovative content Ideas',
+      'content Strategy'
+    ],
+    linkedin: '#'
+  },
+  {
     name: 'Jayaprakash',
     role: 'Web & App Developer',
     image: '/api/placeholder/300/300',

@@ -34,13 +34,15 @@ const Footer = () => {
               Let's discuss how we can help you achieve your digital marketing
               goals. Get a free consultation today.
             </p>
-            <Button
-              variant='default'
-              size='lg'
-              className='bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 transition-all duration-300 transform hover:scale-105 border border-cyan-400/50 hover:border-cyan-400/70'
-            >
-              Get Free Consultation
-            </Button>
+            <Link to='/contact'>
+              <Button
+                variant='default'
+                size='lg'
+                className='bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 transition-all duration-300 transform hover:scale-105 border border-cyan-400/50 hover:border-cyan-400/70'
+              >
+                Get Free Consultation
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

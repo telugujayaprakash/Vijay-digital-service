@@ -19,9 +19,8 @@ const Footer = () => {
   return (
     <footer className='bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white'>
       {/* CTA Section */}
-      <div className='container mx-auto px-4 py-16'>
+      {/* <div className='container mx-auto px-4 py-16'>
         <div className='bg-gradient-to-br from-gray-800/95 via-gray-900/95 to-gray-800/95 backdrop-blur-xl rounded-2xl p-8 md:p-12 text-center relative overflow-hidden border border-cyan-400/20 shadow-2xl shadow-cyan-400/10'>
-          {/* Background decoration */}
           <div className='absolute inset-0 bg-gradient-to-r from-cyan-900/10 via-transparent to-blue-900/10 rounded-2xl'></div>
           <div className='absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl'></div>
           <div className='absolute bottom-0 left-0 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl'></div>
@@ -45,7 +44,7 @@ const Footer = () => {
             </Link>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Main Footer */}
       <div className='border-t border-cyan-400/20 text-white'>

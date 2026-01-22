@@ -57,7 +57,7 @@ const Footer = () => {
                   <BarChart3 className='w-6 h-6 text-white' />
                 </div>
                 <span className='text-xl font-bold bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent group-hover:from-cyan-200 group-hover:to-blue-300 transition-all duration-300'>
-                  Vijay Digital Marketing
+                  VD Marketing
                 </span>
               </Link>
               <p className='text-gray-300 mb-6'>
@@ -262,7 +262,7 @@ const Footer = () => {
         <div className='container mx-auto px-4 py-6'>
           <div className='flex flex-col md:flex-row items-center justify-between gap-4'>
             <p className='text-gray-400 text-sm'>
-              © 2025 Vijay Digital Marketing Services. All rights reserved.
+              © 2026 Vijay Digital Marketing Services. All rights reserved.
             </p>
             <div className='flex gap-6 text-sm'>
               <a

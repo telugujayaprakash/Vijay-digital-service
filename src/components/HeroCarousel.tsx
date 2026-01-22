@@ -8,22 +8,31 @@ import {
 } from '@/components/ui/carousel'
 import Autoplay from 'embla-carousel-autoplay'
 import LazyImage from './LazyImage'
+import webinmg from '../assets/webimg.png'
+import dminmg from '../assets/dmimg.png'
+import ccinmg from '../assets/ccimg.png'
+import veimg from '../assets/veimg.png'
 
 const images = [
   {
-    src: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=600&fit=crop&auto=format&q=80',
-    webp: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=600&fit=crop&auto=format&fm=webp&q=80',
+    src: webinmg,
+    webp: webinmg,
     alt: 'Digital Marketing Image 1'
   },
   {
-    src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop&auto=format&q=80',
-    webp: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop&auto=format&fm=webp&q=80',
+    src: dminmg,
+    webp: dminmg,
     alt: 'Digital Marketing Image 2'
   },
   {
-    src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop&auto=format&q=80',
-    webp: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop&auto=format&fm=webp&q=80',
+    src: ccinmg,
+    webp: ccinmg,
     alt: 'Digital Marketing Image 3'
+  },
+  {
+    src: veimg,
+    webp: veimg,
+    alt: 'Digital Marketing Image 4'
   }
 ]
 

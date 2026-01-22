@@ -14,10 +14,23 @@ import {
   ArrowRight,
   CheckCircle
 } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
+
+// Import service images
+import seoImg from '../assets/digital-marketing.jpg'
+import socialMediaImg from '../assets/digital-marketing.jpg'
+import emailMarketingImg from '../assets/digital-marketing.jpg'
+import ppcImg from '../assets/digital-marketing.jpg'
+import contentMarketingImg from '../assets/content-writing.jpg'
+import brandStrategyImg from '../assets/digital-marketing.jpg'
+import youtubeImg from '../assets/video-editing.jpg'
+import webDevImg from '../assets/web-developer.jpg'
+import testingImg from '../assets/testing.jpg'
 
 const services = [
   {
     icon: Search,
+    image: seoImg,
     title: 'SEO Optimization',
     description: 'Dominate search rankings with our proven SEO strategies.',
     features: [
@@ -31,6 +44,7 @@ const services = [
   },
   {
     icon: Share2,
+    image: socialMediaImg,
     title: 'Social Media Marketing',
     description: 'Build an engaged community across all platforms.',
     features: [
@@ -44,6 +58,7 @@ const services = [
   },
   {
     icon: Mail,
+    image: emailMarketingImg,
     title: 'Email Marketing',
     description:
       'Convert leads into loyal customers with personalized campaigns.',
@@ -58,6 +73,7 @@ const services = [
   },
   {
     icon: Target,
+    image: ppcImg,
     title: 'PPC Advertising',
     description: 'Maximize your ad spend ROI with data-driven campaigns.',
     features: [
@@ -71,6 +87,7 @@ const services = [
   },
   {
     icon: PenTool,
+    image: contentMarketingImg,
     title: 'Content Marketing',
     description: 'Tell your story through compelling content.',
     features: [
@@ -84,6 +101,7 @@ const services = [
   },
   {
     icon: BarChart3,
+    image: brandStrategyImg,
     title: 'Brand Strategy',
     description: 'Build a memorable brand that drives business growth.',
     features: [
@@ -97,6 +115,7 @@ const services = [
   },
   {
     icon: Play,
+    image: youtubeImg,
     title: 'YouTube Promotion',
     description:
       'Grow your channel and maximize video engagement with expert strategies.',
@@ -111,6 +130,7 @@ const services = [
   },
   {
     icon: Code,
+    image: webDevImg,
     title: 'Web Development',
     description:
       'Custom web solutions built with modern technologies and frameworks.',
@@ -124,6 +144,7 @@ const services = [
   },
   {
     icon: TestTube,
+    image: testingImg,
     title: 'Application Testing',
     description:
       'Comprehensive testing services ensuring bug-free, secure applications.',
@@ -138,6 +159,12 @@ const services = [
 ]
 
 const Services = () => {
+  const navigate = useNavigate()
+
+  const handleServiceClick = (path: string) => {
+    navigate(path)
+  }
+
   return (
     <div className='min-h-screen bg-white text-black'>
       <Navbar />
@@ -165,11 +192,26 @@ const Services = () => {
               {services.map((service, index) => (
                 <div
                   key={service.title}
-                  className='bg-white rounded-2xl p-8 border border-gray-200 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group hover:border-blue-300'
+                  onClick={() => handleServiceClick(service.path)}
+                  className='bg-white rounded-2xl p-8 border border-gray-200 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group hover:border-blue-300 cursor-pointer relative overflow-hidden'
                 >
-                  <div className='w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center mb-6 group-hover:bg-blue-100 group-hover:scale-105 transition-all duration-300 border border-blue-200'>
-                    <service.icon className='w-7 h-7 text-blue-600' />
+                  {/* Image Container with Hover Overlay */}
+                  <div className='relative mb-6 group-hover:scale-105 transition-transform duration-300'>
+                    <div className='w-full h-48 rounded-xl overflow-hidden'>
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className='w-full h-full object-cover'
+                      />
+                      {/* Hover Overlay */}
+                      <div className='absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4'>
+                        <h3 className='text-white text-xl font-bold text-center px-2'>
+                          {service.title}
+                        </h3>
+                      </div>
+                    </div>
                   </div>
+
                   <h3 className='text-xl font-bold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors duration-300'>
                     {service.title}
                   </h3>
@@ -187,12 +229,10 @@ const Services = () => {
                       </li>
                     ))}
                   </ul>
-                  <a href={service.path} className='w-full'>
-                    <Button className='w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-md hover:shadow-lg transition-all duration-300 border border-blue-500 hover:border-blue-600'>
-                      Learn More{' '}
-                      <ArrowRight className='w-4 h-4 group-hover:translate-x-1 transition-transform duration-300' />
-                    </Button>
-                  </a>
+                  <Button className='w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-md hover:shadow-lg transition-all duration-300 border border-blue-500 hover:border-blue-600 group-hover:bg-blue-700'>
+                    Learn More{' '}
+                    <ArrowRight className='w-4 h-4 group-hover:translate-x-1 transition-transform duration-300' />
+                  </Button>
                 </div>
               ))}
             </div>

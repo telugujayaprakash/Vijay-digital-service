@@ -89,7 +89,7 @@ const Navbar = () => {
               <img src='/favicon.ico' alt='' className='w-10 h-10 text-white' />
             </div>
             <span className='text-xl font-bold bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent group-hover:from-cyan-200 group-hover:to-blue-300 transition-all duration-300'>
-              Vijay Digital Services
+              VD Services
             </span>
           </Link>
 
@@ -190,32 +190,32 @@ const Navbar = () => {
             </Link>
 
             <div>
-                <button
-                  className='flex items-center justify-between w-full py-2 font-medium text-white'
-                  onClick={() => setShowServices(!showServices)}
-                >
-                  <span>Services</span>
-                  <ChevronDown
-                    className={`w-4 h-4 transition-transform ${
-                      showServices ? 'rotate-180' : ''
-                    }`}
-                  />
-                </button>
+              <button
+                className='flex items-center justify-between w-full py-2 font-medium text-white'
+                onClick={() => setShowServices(!showServices)}
+              >
+                <span>Services</span>
+                <ChevronDown
+                  className={`w-4 h-4 transition-transform ${
+                    showServices ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
               {showServices && (
                 <div className='pl-4 space-y-2 mt-2'>
                   {services.map(service => (
                     <Link
-                    key={service.name}
-                    to={service.path}
-                    className='flex items-center gap-2 py-2 text-gray-300 hover:text-white transition-colors'
-                    onClick={() => {
-                      setIsOpen(false)
-                      setShowServices(false)
-                    }}
-                  >
-                    <service.icon className='w-4 h-4 text-cyan-400' />
-                    {service.name}
-                  </Link>
+                      key={service.name}
+                      to={service.path}
+                      className='flex items-center gap-2 py-2 text-gray-300 hover:text-white transition-colors'
+                      onClick={() => {
+                        setIsOpen(false)
+                        setShowServices(false)
+                      }}
+                    >
+                      <service.icon className='w-4 h-4 text-cyan-400' />
+                      {service.name}
+                    </Link>
                   ))}
                 </div>
               )}

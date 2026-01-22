@@ -20,12 +20,6 @@ const Newsletter = () => {
     }, 1500);
   };
 
-  const benefits = [
-    "Weekly digital marketing tips & strategies",
-    "Exclusive case studies & success stories",
-    "Early access to new services & tools",
-    "Industry insights & trend analysis"
-  ];
 
   return (
     <section className="py-24 bg-gradient-to-br from-cyan-600 via-blue-600 to-purple-600 relative overflow-hidden">
@@ -47,24 +41,6 @@ const Newsletter = () => {
             <p className="text-lg text-cyan-100 max-w-2xl mx-auto">
               Join thousands of marketers who receive our weekly newsletter with expert tips, industry trends, and exclusive content.
             </p>
-          </div>
-
-          {/* Benefits */}
-          <div className="grid md:grid-cols-2 gap-6 mb-12">
-            {benefits.map((benefit, index) => (
-              <div
-                key={benefit}
-                className="flex items-center gap-4 bg-white/10 backdrop-blur-xl rounded-xl p-6 border border-white/20 shadow-lg"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-                  <CheckCircle className="w-5 h-5 text-white" />
-                </div>
-                <span className="text-white font-medium">
-                  {benefit}
-                </span>
-              </div>
-            ))}
           </div>
 
           {/* Newsletter Signup */}

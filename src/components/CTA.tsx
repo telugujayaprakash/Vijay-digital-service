@@ -10,7 +10,7 @@ const CTA = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-cyan-50 via-white to-blue-50 relative overflow-hidden">
+    <section className="py-12 md:py-8 bg-gradient-to-br from-cyan-50 via-white to-blue-50 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-r from-cyan-100/20 via-transparent to-blue-100/20"></div>
       <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-cyan-200/20 rounded-full blur-3xl"></div>
@@ -19,7 +19,7 @@ const CTA = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-12">
+          <div className="text-center mb-8 md:mb-8">
             <span className="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-400/30 text-cyan-600 font-medium text-sm mb-4 shadow-lg shadow-cyan-400/20">
               Ready to Grow?
             </span>
@@ -32,7 +32,7 @@ const CTA = () => {
           </div>
 
           {/* Benefits Grid */}
-          <div className="grid md:grid-cols-2 gap-6 mb-12">
+          <div className="grid md:grid-cols-2 gap-6 mb-8 md:mb-8">
             {benefits.map((benefit, index) => (
               <div
                 key={benefit}

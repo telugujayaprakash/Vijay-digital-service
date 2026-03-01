@@ -41,7 +41,7 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-gray-50 via-white to-cyan-50 relative overflow-hidden">
+    <section className="py-12 md:py-8 bg-gradient-to-br from-gray-50 via-white to-cyan-50 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-r from-blue-50/30 via-transparent to-purple-50/30"></div>
       <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-cyan-100/20 rounded-full blur-3xl"></div>
@@ -49,7 +49,7 @@ const WhyChooseUs = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-8">
           <span className="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-400/30 text-cyan-600 font-medium text-sm mb-4 shadow-lg shadow-cyan-400/20">
             Why Choose Us
           </span>
@@ -83,8 +83,8 @@ const WhyChooseUs = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16">
-          <div className="bg-gradient-to-br from-white via-cyan-50/50 to-white backdrop-blur-xl rounded-2xl p-8 md:p-12 border border-cyan-200/50 shadow-2xl shadow-cyan-400/10 max-w-4xl mx-auto">
+        <div className="text-center mt-6">
+          <div className="bg-gradient-to-br from-white via-cyan-50/50 to-white backdrop-blur-xl rounded-2xl p-8 md:p-8 md:p-6 border border-cyan-200/50 shadow-2xl shadow-cyan-400/10 max-w-4xl mx-auto">
             <h3 className="text-2xl md:text-3xl font-bold mb-4 bg-gradient-to-r from-gray-900 via-cyan-600 to-blue-600 bg-clip-text text-transparent">
               Ready to Experience the Difference?
             </h3>

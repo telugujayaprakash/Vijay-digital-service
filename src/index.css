@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
 
 @tailwind base;
@@ -6,64 +7,51 @@
 
 @layer base {
   :root {
-    /* Pure Black Theme */
-    --background: 0 0% 0%;
-    /* Pure Black */
-    --foreground: 0 0% 100%;
-    /* Pure White */
+    /* Minimalist SaaS Soft UI Theme */
+    --background: 210 40% 98%;
+    --foreground: 222.2 47.4% 11.2%;
 
-    --card: 0 0% 8%;
-    /* Dark Gray - visible on black */
-    --card-foreground: 0 0% 100%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
 
-    --popover: 0 0% 8%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
 
-    --primary: 0 0% 100%;
-    /* Pure White */
-    --primary-foreground: 0 0% 0%;
-    /* Black text on white */
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
 
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 70%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 0 0% 85%;
-    /* Light Gray */
-    --accent-foreground: 0 0% 0%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 0 0% 85%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
 
-    /* Pure Black Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(0 0% 85%) 100%);
-    /* White to Light Gray */
-    --gradient-accent: linear-gradient(135deg, hsl(0 0% 0%) 0%, hsl(0 0% 15%) 50%, hsl(0 0% 85%) 100%);
-    /* Black to Gray to Light */
-    --gradient-hero: linear-gradient(180deg, hsl(0 0% 0%) 0%, hsl(0 0% 5%) 100%);
-    /* Pure Black Fade */
+    /* Soft Neumorphic Gradients & Shadows */
+    --gradient-primary: linear-gradient(135deg, hsl(221.2 83.2% 53.3%) 0%, hsl(210 100% 65%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(210 40% 98%) 0%, hsl(210 40% 96.1%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 40% 98%) 100%);
 
-    --shadow-soft: 0 4px 20px -2px hsl(0 0% 0% / 0.5);
-    --shadow-accent: 0 0 20px -2px hsl(210 20% 98% / 0.15);
-    /* Silver Glow */
-    --shadow-card: 0 10px 40px -10px hsl(0 0% 0% / 0.7);
+    /* Neumorphism specific shadows for SaaS Dashboard */
+    --shadow-soft: 8px 8px 16px rgba(175, 190, 205, 0.4),
+      -8px -8px 16px rgba(255, 255, 255, 0.9);
+    --shadow-hover: 12px 12px 24px rgba(175, 190, 205, 0.5),
+      -12px -12px 24px rgba(255, 255, 255, 1);
+    --shadow-inner: inset 4px 4px 8px rgba(175, 190, 205, 0.4),
+      inset -4px -4px 8px rgba(255, 255, 255, 0.9);
 
-    --sidebar-background: 224 71% 6%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 210 20% 98%;
-    --sidebar-primary-foreground: 224 71% 4%;
-    --sidebar-accent: 224 71% 12%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 224 71% 12%;
-    --sidebar-ring: 210 20% 98%;
+    --shadow-card: 0 2px 4px rgba(0, 0, 0, 0.02), 0 4px 12px rgba(0, 0, 0, 0.04);
   }
 }
 
@@ -73,7 +61,10 @@
   }
 
   body {
-    @apply bg-background text-foreground font-outfit antialiased;
+    @apply bg-background text-foreground font-outfit antialiased selection:bg-primary/20;
+    /* Soft pattern for Dashboard */
+    background-image: radial-gradient(rgba(175, 190, 205, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
   }
 
   h1,
@@ -82,106 +73,92 @@
   h4,
   h5,
   h6 {
-    @apply font-outfit font-bold tracking-tight;
+    @apply font-outfit font-bold tracking-tight text-slate-800;
   }
 }
 
 @layer components {
+
+  /* Minimalist UI Layout Utilities */
   .gradient-text {
-    @apply bg-clip-text text-transparent;
-    background-image: var(--gradient-accent);
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600;
   }
 
   .hero-gradient {
     background: var(--gradient-hero);
   }
 
+  /* Card based Soft UI Styling */
+  .card-soft {
+    @apply bg-white rounded-3xl border border-white;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
   .card-hover {
-    @apply transition-all duration-500 hover:-translate-y-2;
+    @apply transition-all duration-300;
     box-shadow: var(--shadow-soft);
   }
 
   .card-hover:hover {
-    box-shadow: var(--shadow-card);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
   }
 
-  .service-card {
-    background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(248,250,252,0.9) 50%, rgba(219,234,254,0.3) 100%);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(6, 182, 212, 0.2);
+  .service-card,
+  .home-feature-card,
+  .client-card,
+  .testimonial-card,
+  .cta-card {
+    @apply bg-white rounded-3xl border border-white;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .service-card:hover {
-    background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(236,254,255,0.9) 50%, rgba(219,234,254,0.5) 100%);
-    border-color: rgba(6, 182, 212, 0.4);
-    box-shadow: 0 20px 40px -10px rgba(6, 182, 212, 0.3), 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-  }
-
-  .home-feature-card {
-    background: linear-gradient(135deg, rgba(17,24,39,0.95) 0%, rgba(31,41,55,0.9) 50%, rgba(17,24,39,0.8) 100%);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(6, 182, 212, 0.2);
-  }
-
-  .home-feature-card:hover {
-    background: linear-gradient(135deg, rgba(17,24,39,0.98) 0%, rgba(31,41,55,0.95) 50%, rgba(17,24,39,0.9) 100%);
-    border-color: rgba(6, 182, 212, 0.5);
-    box-shadow: 0 20px 40px -10px rgba(6, 182, 212, 0.4), 0 10px 25px -5px rgba(0, 0, 0, 0.3);
-  }
-
-  .client-card {
-    background: linear-gradient(135deg, rgba(31,41,55,0.9) 0%, rgba(17,24,39,0.9) 50%, rgba(31,41,55,0.8) 100%);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(6, 182, 212, 0.2);
-  }
-
-  .client-card:hover {
-    background: linear-gradient(135deg, rgba(31,41,55,0.95) 0%, rgba(17,24,39,0.95) 50%, rgba(31,41,55,0.9) 100%);
-    border-color: rgba(6, 182, 212, 0.5);
-    box-shadow: 0 20px 40px -10px rgba(6, 182, 212, 0.4), 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+  .service-card:hover,
+  .home-feature-card:hover,
+  .client-card:hover,
+  .testimonial-card:hover,
+  .cta-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
   }
 
   .stats-bar {
-    background: linear-gradient(135deg, rgba(31,41,55,0.95) 0%, rgba(17,24,39,0.98) 50%, rgba(31,41,55,0.9) 100%);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(6, 182, 212, 0.3);
+    @apply bg-white rounded-3xl border border-slate-100;
+    box-shadow: var(--shadow-soft);
   }
 
-  .testimonial-card {
-    background: linear-gradient(135deg, rgba(31,41,55,0.95) 0%, rgba(17,24,39,0.95) 50%, rgba(31,41,55,0.9) 100%);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(6, 182, 212, 0.2);
+  /* Buttons */
+  .btn-soft {
+    @apply bg-white text-slate-700 font-semibold rounded-2xl border border-white;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.3s ease;
   }
 
-  .testimonial-card:hover {
-    background: linear-gradient(135deg, rgba(31,41,55,0.98) 0%, rgba(17,24,39,0.98) 50%, rgba(31,41,55,0.95) 100%);
-    border-color: rgba(6, 182, 212, 0.5);
-    box-shadow: 0 20px 40px -10px rgba(6, 182, 212, 0.4), 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+  .btn-soft:hover {
+    box-shadow: var(--shadow-inner);
+    color: var(--primary);
   }
 
-  .cta-card {
-    background: linear-gradient(135deg, rgba(31,41,55,0.95) 0%, rgba(17,24,39,0.95) 50%, rgba(31,41,55,0.9) 100%);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(6, 182, 212, 0.2);
+  .btn-primary-soft {
+    @apply bg-primary text-white font-semibold rounded-2xl;
+    box-shadow: 4px 4px 10px rgba(37, 99, 235, 0.3), -4px -4px 10px rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
   }
 
-  .cta-card:hover {
-    background: linear-gradient(135deg, rgba(31,41,55,0.98) 0%, rgba(17,24,39,0.98) 50%, rgba(31,41,55,0.95) 100%);
-    border-color: rgba(6, 182, 212, 0.5);
-    box-shadow: 0 20px 40px -10px rgba(6, 182, 212, 0.4), 0 10px 25px -5px rgba(0, 0, 0, 0.4);
-  }
-
-  .btn-glow {
-    box-shadow: var(--shadow-accent);
+  .btn-primary-soft:hover {
+    transform: translateY(-2px);
+    box-shadow: 6px 6px 15px rgba(37, 99, 235, 0.4), -6px -6px 15px rgba(255, 255, 255, 1);
   }
 
   .nav-link {
-    @apply relative transition-all duration-300;
+    @apply relative transition-all duration-300 font-medium text-slate-600 hover:text-primary;
   }
 
   .nav-link::after {
     content: '';
-    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 transition-all duration-300;
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
   }
 
   .nav-link:hover::after {

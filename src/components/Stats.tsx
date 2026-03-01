@@ -65,13 +65,13 @@ const Stats = () => {
   ];
 
   return (
-    <section className="py-20 bg-white relative overflow-hidden">
+    <section className="py-12 md:py-8 bg-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-r from-cyan-50/30 via-transparent to-blue-50/30"></div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-8">
           <span className="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-400/30 text-cyan-600 font-medium text-sm mb-4 shadow-lg shadow-cyan-400/20">
             Our Impact
           </span>
@@ -107,7 +107,7 @@ const Stats = () => {
         </div>
 
         {/* Additional Achievements */}
-        <div className="mt-16 grid md:grid-cols-3 gap-8">
+        <div className="mt-6 grid md:grid-cols-3 gap-8">
           <div className="text-center bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl p-6 border border-cyan-200/50">
             <div className="text-3xl font-bold text-cyan-600 mb-2">98%</div>
             <div className="text-gray-700 font-medium">Client Satisfaction Rate</div>

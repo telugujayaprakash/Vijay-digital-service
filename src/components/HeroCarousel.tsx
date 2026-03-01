@@ -38,11 +38,11 @@ const images = [
 
 const HeroCarousel = () => {
   return (
-    <section className='relative min-h-screen flex items-center bg-white overflow-hidden pt-20'>
+    <section className='relative flex items-center bg-white overflow-hidden pt-32 pb-16'>
       {/* Background Elements */}
-      <div className='absolute inset-0 overflow-hidden'>
-        <div className='absolute top-1/4 -right-20 w-96 h-96 bg-blue-50 rounded-full blur-2xl' />
-        <div className='absolute bottom-1/4 -left-20 w-80 h-80 bg-cyan-50 rounded-full blur-2xl' />
+      <div className='absolute inset-0 overflow-hidden bg-background pointer-events-none'>
+        <div className='absolute top-1/4 -right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl' />
+        <div className='absolute bottom-1/4 -left-20 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl' />
       </div>
 
       <div className='container mx-auto px-4 relative z-10'>
@@ -67,7 +67,7 @@ const HeroCarousel = () => {
                         <img
                           src={image.src}
                           alt={image.alt}
-                          className='w-full h-[500px] md:h-[600px] object-cover rounded-lg shadow-2xl'
+                          className='w-full h-[500px] md:h-[600px] object-cover rounded-3xl shadow-soft'
                           // fetchpriority='high'
                           loading='eager'
                         />
@@ -79,11 +79,11 @@ const HeroCarousel = () => {
                         <LazyImage
                           src={image.src}
                           alt={image.alt}
-                          className='w-full h-[500px] md:h-[600px] rounded-lg shadow-2xl'
+                          className='w-full h-[500px] md:h-[600px] rounded-3xl shadow-soft object-cover'
                         />
                       </picture>
                     )}
-                    <div className='absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg' />
+                    <div className='absolute inset-0 bg-gradient-to-t from-slate-900/10 to-transparent rounded-3xl pointer-events-none' />
                   </div>
                 </CarouselItem>
               ))}

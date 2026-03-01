@@ -44,22 +44,24 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="py-12 md:py-8 bg-slate-50 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 via-transparent to-purple-50/50"></div>
-      <div className="absolute top-0 left-1/3 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-1/3 w-96 h-96 bg-purple-100/30 rounded-full blur-3xl"></div>
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2"></div>
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl translate-y-1/2"></div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10 text-center">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-400/30 text-blue-600 font-medium text-sm mb-4 shadow-lg shadow-blue-400/20">
-            Testimonials
+        <div className="max-w-3xl mx-auto mb-8 md:mb-8">
+          <span className="inline-flex items-center px-6 py-2 rounded-full bg-white border border-slate-200 mb-6 shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-primary mr-2"></span>
+            <span className="text-sm font-semibold text-slate-600">
+              Testimonials
+            </span>
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-gray-900 via-blue-600 to-purple-600 bg-clip-text text-transparent">
-            What Our Clients Say
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-800 tracking-tight">
+            What Our <span className="text-primary">Clients Say</span>
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-slate-500">
             Don't just take our word for it. Here's what our clients have to say
             about their experience working with Vijay Digital Services.
           </p>
@@ -74,29 +76,29 @@ const Testimonials = () => {
             >
               {testimonials.map((testimonial, index) => (
                 <div key={index} className="w-full flex-shrink-0 px-4">
-                  <div className="bg-gradient-to-br from-white via-gray-50 to-white backdrop-blur-xl rounded-2xl p-8 md:p-12 border border-cyan-200/50 shadow-2xl shadow-cyan-400/10 relative hover:border-cyan-400/70 hover:shadow-cyan-400/20 transition-all duration-500 group">
-                    <Quote className="absolute top-8 right-8 w-12 h-12 text-cyan-400/50 group-hover:text-cyan-500/70 transition-colors duration-300" />
+                  <div className="card-soft p-8 md:p-8 md:p-6 text-left relative group">
+                    <Quote className="absolute top-8 right-8 w-12 h-12 text-slate-100 group-hover:text-primary/10 transition-colors duration-300" />
 
                     {/* Stars */}
                     <div className="flex gap-1 mb-6">
                       {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 fill-cyan-500 text-cyan-500 group-hover:fill-cyan-600 group-hover:text-cyan-600 transition-colors duration-300" />
+                        <Star key={i} className="w-5 h-5 fill-primary text-primary" />
                       ))}
                     </div>
 
                     {/* Content */}
-                    <p className="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
+                    <p className="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed">
                       "{testimonial.content}"
                     </p>
 
                     {/* Author */}
                     <div className="flex items-center gap-4">
-                      <div className="w-14 h-14 rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-lg font-bold text-white shadow-lg shadow-cyan-400/30 group-hover:shadow-cyan-400/50 group-hover:scale-110 transition-all duration-300">
+                      <div className="w-14 h-14 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-lg font-bold text-slate-400 group-hover:bg-primary/5 group-hover:text-primary transition-all duration-300">
                         {testimonial.image}
                       </div>
                       <div>
-                        <p className="font-semibold text-gray-900 group-hover:text-cyan-600 transition-colors duration-300">{testimonial.name}</p>
-                        <p className="text-cyan-600 group-hover:text-cyan-700 transition-colors duration-300">{testimonial.role}</p>
+                        <p className="font-bold text-slate-800">{testimonial.name}</p>
+                        <p className="text-sm text-slate-500 font-medium">{testimonial.role}</p>
                       </div>
                     </div>
                   </div>
@@ -106,10 +108,10 @@ const Testimonials = () => {
           </div>
 
           {/* Navigation */}
-          <div className="flex items-center justify-center gap-4 mt-8">
+          <div className="flex items-center justify-center gap-6 mt-8">
             <button
               onClick={prevTestimonial}
-              className="w-12 h-12 rounded-full border border-cyan-400/30 bg-white backdrop-blur-sm flex items-center justify-center hover:bg-gradient-to-r hover:from-cyan-500/10 hover:to-blue-500/10 hover:border-cyan-400/50 text-cyan-600 hover:text-white transition-all duration-300 shadow-lg shadow-cyan-400/10 hover:shadow-cyan-400/20"
+              className="w-12 h-12 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-primary hover:border-primary/30 transition-all duration-300 shadow-sm"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
@@ -119,18 +121,17 @@ const Testimonials = () => {
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
-                  className={`rounded-full transition-all duration-300 ${
-                    index === currentIndex
-                      ? 'bg-gradient-to-r from-cyan-400 to-blue-500 w-8 shadow-lg shadow-cyan-400/30'
-                      : 'bg-cyan-400/30 hover:bg-cyan-400/50 w-3 h-3 hover:scale-110'
-                  }`}
+                  className={`rounded-full transition-all duration-300 ${index === currentIndex
+                      ? 'bg-primary w-8 h-2.5'
+                      : 'bg-slate-200 hover:bg-slate-300 w-2.5 h-2.5'
+                    }`}
                 />
               ))}
             </div>
 
             <button
               onClick={nextTestimonial}
-              className="w-12 h-12 rounded-full border border-cyan-400/30 bg-white backdrop-blur-sm flex items-center justify-center hover:bg-gradient-to-r hover:from-cyan-500/10 hover:to-blue-500/10 hover:border-cyan-400/50 text-cyan-600 hover:text-white transition-all duration-300 shadow-lg shadow-cyan-400/10 hover:shadow-cyan-400/20"
+              className="w-12 h-12 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-primary hover:border-primary/30 transition-all duration-300 shadow-sm"
             >
               <ChevronRight className="w-5 h-5" />
             </button>

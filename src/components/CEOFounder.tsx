@@ -1,8 +1,6 @@
 import { Link } from 'react-router-dom'
 import {
   Award,
-  Users,
-  TrendingUp,
   Quote,
   Linkedin,
   Mail,
@@ -64,121 +62,123 @@ const CEOFounder = () => {
   ]
 
   return (
-    <section className='py-24 bg-white'>
+    <section className='py-12 md:py-8 bg-background text-slate-800 relative z-10'>
       <div className='container mx-auto px-6'>
         {/* Header */}
-        <div className='text-center mb-16'>
-          <span className='inline-block px-4 py-2 rounded-full bg-purple-100 text-purple-700 text-sm font-semibold mb-4'>
-            Leadership
-          </span>
-          <h2 className='text-3xl md:text-4xl font-bold mb-4'>
-            Meet Our CEO & Founder
+        <div className='text-center mb-8 md:mb-8 animate-slide-in'>
+          <div className='inline-flex items-center px-6 py-2 rounded-full bg-white border border-slate-200 mb-6 shadow-sm'>
+            <span className='w-2 h-2 rounded-full bg-primary mr-2'></span>
+            <span className='text-sm font-semibold text-slate-600'>
+              Leadership
+            </span>
+          </div>
+          <h2 className='text-3xl md:text-4xl font-bold mb-4 text-slate-800 tracking-tight'>
+            Meet Our <span className='text-primary'>CEO & Founder</span>
           </h2>
-          <p className='text-gray-600 max-w-2xl mx-auto'>
+          <p className='text-slate-500 max-w-2xl mx-auto text-lg mb-8'>
             The visionary leader driving innovation and excellence in digital
             solutions
           </p>
-          <div className='w-20 h-1 bg-purple-500 mx-auto rounded-full mt-4' />
         </div>
 
         {/* Main Founder Section */}
-        <div className='grid lg:grid-cols-2 gap-12 items-center mb-20'>
+        <div className='grid lg:grid-cols-2 gap-6 items-center mb-6'>
           {/* Image & Quote */}
           <div className='relative'>
             <img
               src={founder.image}
               alt={founder.name}
-              className='w-full max-w-md mx-auto rounded-2xl shadow-2xl'
+              className='w-full max-w-md mx-auto rounded-3xl shadow-soft object-cover aspect-square'
             />
-            <div className='absolute -bottom-6 -right-6 bg-purple-600 text-white p-6 rounded-2xl shadow-xl'>
-              <Quote className='w-8 h-8 mb-2' />
-              <p className='text-sm italic'>"{founder.quote}"</p>
+            <div className='absolute -bottom-6 -right-2 md:-right-6 bg-white border border-slate-100 p-6 rounded-2xl shadow-soft max-w-xs'>
+              <Quote className='w-8 h-8 mb-2 text-primary/40' />
+              <p className='text-sm italic text-slate-600'>"{founder.quote}"</p>
             </div>
           </div>
 
           {/* Info */}
-          <div>
-            <h3 className='text-3xl font-bold mb-2'>{founder.name}</h3>
-            <p className='text-purple-600 font-semibold text-lg mb-4'>
+          <div className='lg:pl-8'>
+            <h3 className='text-3xl font-bold mb-2 text-slate-800'>{founder.name}</h3>
+            <p className='text-primary font-semibold text-lg mb-6'>
               {founder.title}
             </p>
-            <p className='text-gray-600 mb-6 leading-relaxed'>{founder.bio}</p>
+            <p className='text-slate-500 mb-8 leading-relaxed text-lg'>{founder.bio}</p>
 
             {/* Achievements */}
-            <div className='grid grid-cols-2 gap-4 mb-6'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8'>
               {founder.achievements.map((achievement, index) => (
-                <div key={index} className='flex items-center'>
-                  <Award className='w-5 h-5 text-purple-500 mr-2 flex-shrink-0' />
-                  <span className='text-sm text-gray-700'>{achievement}</span>
+                <div key={index} className='flex items-center p-3 rounded-xl bg-slate-50 border border-slate-100'>
+                  <Award className='w-5 h-5 text-primary mr-3 flex-shrink-0' />
+                  <span className='text-sm text-slate-700 font-medium'>{achievement}</span>
                 </div>
               ))}
             </div>
 
             {/* Contact */}
-            <div className='flex space-x-3'>
+            <div className='flex space-x-4'>
               <a
                 href='#'
-                className='w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center hover:bg-purple-200 transition-colors'
+                className='w-12 h-12 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center hover:bg-primary/5 transition-colors group'
               >
-                <Linkedin className='w-5 h-5 text-purple-600' />
+                <Linkedin className='w-5 h-5 text-slate-400 group-hover:text-primary transition-colors' />
               </a>
               <a
                 href='#'
-                className='w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center hover:bg-purple-200 transition-colors'
+                className='w-12 h-12 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center hover:bg-primary/5 transition-colors group'
               >
-                <Mail className='w-5 h-5 text-purple-600' />
+                <Mail className='w-5 h-5 text-slate-400 group-hover:text-primary transition-colors' />
               </a>
               <a
                 href='#'
-                className='w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center hover:bg-purple-200 transition-colors'
+                className='w-12 h-12 bg-slate-50 border border-slate-100 rounded-full flex items-center justify-center hover:bg-primary/5 transition-colors group'
               >
-                <Phone className='w-5 h-5 text-purple-600' />
+                <Phone className='w-5 h-5 text-slate-400 group-hover:text-primary transition-colors' />
               </a>
             </div>
           </div>
         </div>
 
         {/* Stats */}
-        <div className='grid grid-cols-2 md:grid-cols-4 gap-8 mb-20'>
+        <div className='grid grid-cols-2 md:grid-cols-4 gap-6 mb-8 md:mb-8'>
           {founder.stats.map((stat, index) => (
-            <div key={index} className='text-center'>
-              <div className='text-4xl font-bold text-purple-600 mb-2'>
+            <div key={index} className='card-soft p-8 text-center'>
+              <div className='text-4xl font-bold tracking-tight text-primary mb-2'>
                 {stat.number}
               </div>
-              <div className='text-gray-600 font-medium'>{stat.label}</div>
+              <div className='text-slate-500 font-medium text-sm'>{stat.label}</div>
             </div>
           ))}
         </div>
 
         {/* Journey Timeline */}
         <div>
-          <h3 className='text-2xl font-bold text-center mb-12'>Our Journey</h3>
+          <h3 className='text-2xl font-bold text-center mb-8 md:mb-8 text-slate-800'>Our Journey</h3>
 
           <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
             {journey.map((milestone, index) => (
-              <div key={index} className='text-center group'>
-                <div className='relative mb-4'>
+              <div key={index} className='card-soft p-4 group hover:-translate-y-2 transition-transform duration-500'>
+                <div className='relative mb-6 overflow-hidden rounded-xl h-40'>
                   <img
                     src={milestone.image}
                     alt={milestone.title}
-                    className='w-full h-32 object-cover rounded-xl group-hover:scale-105 transition-transform duration-300'
+                    className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-700'
                   />
-                  <div className='absolute top-2 left-2 bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-semibold'>
+                  <div className='absolute top-3 left-3 bg-white/90 backdrop-blur-md text-primary px-3 py-1 rounded-lg text-sm font-semibold shadow-sm'>
                     {milestone.year}
                   </div>
                 </div>
-                <h4 className='font-semibold mb-2'>{milestone.title}</h4>
-                <p className='text-gray-600 text-sm'>{milestone.description}</p>
+                <h4 className='font-semibold mb-2 text-slate-800 px-2'>{milestone.title}</h4>
+                <p className='text-slate-500 text-sm px-2 pb-2'>{milestone.description}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* CTA */}
-        <div className='text-center mt-16'>
+        <div className='text-center mt-6'>
           <Link
             to='/contact'
-            className='inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105'
+            className='btn-primary-soft inline-flex px-8 py-3 text-lg items-center justify-center'
           >
             Connect with Vijay
           </Link>

@@ -17,28 +17,24 @@ import { Button } from '@/components/ui/button'
 
 const Footer = () => {
   return (
-    <footer className='bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white'>
+    <footer className='bg-white text-slate-800 border-t border-slate-200'>
       {/* CTA Section */}
-      {/* <div className='container mx-auto px-4 py-16'>
-        <div className='bg-gradient-to-br from-gray-800/95 via-gray-900/95 to-gray-800/95 backdrop-blur-xl rounded-2xl p-8 md:p-12 text-center relative overflow-hidden border border-cyan-400/20 shadow-2xl shadow-cyan-400/10'>
-          <div className='absolute inset-0 bg-gradient-to-r from-cyan-900/10 via-transparent to-blue-900/10 rounded-2xl'></div>
-          <div className='absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl'></div>
-          <div className='absolute bottom-0 left-0 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl'></div>
+      {/* <div className='container mx-auto px-4 py-10 md:py-14'>
+        <div className='card-soft p-8 md:p-8 md:p-6 text-center relative overflow-hidden'>
+          <div className='absolute inset-0 bg-primary/5 rounded-2xl'></div>
+          <div className='absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-2xl'></div>
+          <div className='absolute bottom-0 left-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl'></div>
 
           <div className='relative z-10'>
-            <h2 className='text-3xl md:text-4xl font-bold bg-gradient-to-r from-white via-cyan-100 to-blue-100 bg-clip-text text-transparent mb-4'>
+            <h2 className='text-3xl md:text-4xl font-bold text-slate-800 mb-4'>
               Ready to Grow Your Business?
             </h2>
-            <p className='text-gray-300 max-w-2xl mx-auto mb-8 text-lg'>
+            <p className='text-slate-600 max-w-2xl mx-auto mb-8 text-lg'>
               Let's discuss how we can help you achieve your digital marketing
               goals. Get a free consultation today.
             </p>
             <Link to='/contact'>
-              <Button
-                variant='default'
-                size='lg'
-                className='bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 transition-all duration-300 transform hover:scale-105 border border-cyan-400/50 hover:border-cyan-400/70'
-              >
+              <Button className='btn-primary-soft px-8 py-3 text-lg'>
                 Get Free Consultation
               </Button>
             </Link>
@@ -47,20 +43,20 @@ const Footer = () => {
       </div> */}
 
       {/* Main Footer */}
-      <div className='border-t border-cyan-400/20 text-white'>
-        <div className='container mx-auto px-4 py-16'>
+      <div className='text-slate-600'>
+        <div className='container mx-auto px-4 py-10 md:py-14'>
           <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
             {/* Brand */}
             <div>
               <Link to='/' className='flex items-center gap-2 mb-6 group'>
-                <div className='w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center shadow-lg shadow-cyan-400/30 group-hover:shadow-cyan-400/50 transition-all duration-300'>
-                  <BarChart3 className='w-6 h-6 text-white' />
+                <div className='w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center border border-slate-200 shadow-sm group-hover:shadow-md transition-all duration-300'>
+                  <img src='/favicon.ico' alt='' className='w-6 h-6' />
                 </div>
-                <span className='text-xl font-bold bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent group-hover:from-cyan-200 group-hover:to-blue-300 transition-all duration-300'>
+                <span className='text-xl font-bold text-slate-800 group-hover:text-primary transition-all duration-300'>
                   VD Marketing
                 </span>
               </Link>
-              <p className='text-gray-300 mb-6'>
+              <p className='text-slate-500 mb-6'>
                 Empowering businesses with data-driven digital marketing
                 solutions that deliver measurable results.
               </p>
@@ -68,65 +64,44 @@ const Footer = () => {
                 <a
                   href='https://www.instagram.com/vijaydigitalmarketingservice/'
                   target='_blank'
-                  className='w-10 h-10 flex items-center justify-center text-white'
+                  className='w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-primary hover:bg-white hover:border-primary/20 transition-all duration-300 hover:-translate-y-1'
                 >
                   <Instagram className='w-5 h-5' />
                 </a>
                 <a
                   href='https://www.facebook.com/profile.php?id=61585560825920'
                   target='_blank'
-                  className='w-10 h-10 flex items-center justify-center  text-white'
+                  className='w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-primary hover:bg-white hover:border-primary/20 transition-all duration-300 hover:-translate-y-1'
                 >
                   <Facebook className='w-5 h-5' />
                 </a>
                 <a
                   href='https://www.youtube.com/@vijaydigitalservice'
                   target='_blank'
-                  className='w-10 h-10 flex items-center justify-center  text-white'
+                  className='w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-primary hover:bg-white hover:border-primary/20 transition-all duration-300 hover:-translate-y-1'
                 >
                   <Youtube className='w-5 h-5' />
                 </a>
                 <a
                   href='https://www.linkedin.com/in/vijay-digitalservices-8a40033a4/'
                   target='_blank'
-                  className='w-10 h-10 flex items-center justify-center  text-white'
+                  className='w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-primary hover:bg-white hover:border-primary/20 transition-all duration-300 hover:-translate-y-1'
                 >
                   <Linkedin className='w-5 h-5' />
-                </a>
-                <a
-                  href='https://x.com/digitalser87081'
-                  target='_blank'
-                  className='w-10 h-10 flex items-center justify-center  text-white'
-                >
-                  <TwitterIcon className='w-5 h-5' fill='' />
-                </a>
-                <a
-                  href='#'
-                  target='_blank'
-                  className='w-10 h-10 flex items-center justify-center  text-white'
-                >
-                  <Share className='w-5 h-5' />
-                </a>
-                <a
-                  href='#'
-                  target='_blank'
-                  className='w-10 h-10 flex items-center justify-center  text-white'
-                >
-                  <Pin className='w-5 h-5' />
                 </a>
               </div>
             </div>
 
             {/* Quick Links */}
             <div>
-              <h3 className='font-bold text-lg mb-6 text-cyan-300'>
+              <h3 className='font-bold text-lg mb-6 text-slate-800'>
                 Quick Links
               </h3>
               <ul className='space-y-4'>
                 <li>
                   <Link
                     to='/'
-                    className='text-gray-300 hover:text-cyan-300 transition-colors duration-300'
+                    className='text-slate-500 hover:text-primary transition-colors duration-300'
                   >
                     Home
                   </Link>
@@ -134,7 +109,7 @@ const Footer = () => {
                 <li>
                   <Link
                     to='/about'
-                    className='text-gray-300 hover:text-cyan-300 transition-colors duration-300'
+                    className='text-slate-500 hover:text-primary transition-colors duration-300'
                   >
                     About Us
                   </Link>
@@ -142,7 +117,7 @@ const Footer = () => {
                 <li>
                   <Link
                     to='/services'
-                    className='text-gray-300 hover:text-cyan-300 transition-colors duration-300'
+                    className='text-slate-500 hover:text-primary transition-colors duration-300'
                   >
                     Services
                   </Link>
@@ -150,7 +125,7 @@ const Footer = () => {
                 <li>
                   <Link
                     to='/clients'
-                    className='text-gray-300 hover:text-cyan-300 transition-colors duration-300'
+                    className='text-slate-500 hover:text-primary transition-colors duration-300'
                   >
                     Clients
                   </Link>
@@ -158,7 +133,7 @@ const Footer = () => {
                 <li>
                   <Link
                     to='/blogs'
-                    className='text-gray-300 hover:text-cyan-300 transition-colors duration-300'
+                    className='text-slate-500 hover:text-primary transition-colors duration-300'
                   >
                     Blogs
                   </Link>
@@ -168,12 +143,12 @@ const Footer = () => {
 
             {/* Services */}
             <div>
-              <h3 className='font-bold text-lg mb-6 text-cyan-300'>Services</h3>
+              <h3 className='font-bold text-lg mb-6 text-slate-800'>Services</h3>
               <ul className='space-y-4'>
                 <li>
                   <a
                     href='https://www.vijaydigitalservices.com/services/seo'
-                    className='text-gray-300 hover:text-cyan-300 transition-colors duration-300'
+                    className='text-slate-500 hover:text-primary transition-colors duration-300'
                   >
                     SEO Optimization
                   </a>
@@ -181,7 +156,7 @@ const Footer = () => {
                 <li>
                   <a
                     href='https://www.vijaydigitalservices.com/services/social-media'
-                    className='text-gray-300 hover:text-cyan-300 transition-colors duration-300'
+                    className='text-slate-500 hover:text-primary transition-colors duration-300'
                   >
                     Social Media Marketing
                   </a>
@@ -189,7 +164,7 @@ const Footer = () => {
                 <li>
                   <a
                     href='https://www.vijaydigitalservices.com/services/ppc'
-                    className='text-gray-300 hover:text-cyan-300 transition-colors duration-300'
+                    className='text-slate-500 hover:text-primary transition-colors duration-300'
                   >
                     PPC Advertising
                   </a>
@@ -197,7 +172,7 @@ const Footer = () => {
                 <li>
                   <a
                     href='https://www.vijaydigitalservices.com/services/content-marketing'
-                    className='text-gray-300 hover:text-cyan-300 transition-colors duration-300'
+                    className='text-slate-500 hover:text-primary transition-colors duration-300'
                   >
                     Content Marketing
                   </a>
@@ -205,7 +180,7 @@ const Footer = () => {
                 <li>
                   <a
                     href='https://www.vijaydigitalservices.com/services/email-marketing'
-                    className='text-gray-300 hover:text-cyan-300 transition-colors duration-300'
+                    className='text-slate-500 hover:text-primary transition-colors duration-300'
                   >
                     Email Marketing
                   </a>
@@ -213,7 +188,7 @@ const Footer = () => {
                 <li>
                   <a
                     href='https://www.vijaydigitalservices.com/services/youtube-promotion'
-                    className='text-gray-300 hover:text-cyan-300 transition-colors duration-300'
+                    className='text-slate-500 hover:text-primary transition-colors duration-300'
                   >
                     YouTube Promotion
                   </a>
@@ -223,30 +198,36 @@ const Footer = () => {
 
             {/* Contact */}
             <div>
-              <h3 className='font-bold text-lg mb-6 text-cyan-300'>
+              <h3 className='font-bold text-lg mb-6 text-slate-800'>
                 Contact Us
               </h3>
               <ul className='space-y-4'>
                 <li className='flex items-start gap-3'>
-                  <MapPin className='w-5 h-5 text-cyan-400 mt-1' />
-                  <span className='text-gray-300'>
+                  <div className='mt-1 p-1 rounded-md bg-slate-50 text-slate-400'>
+                    <MapPin className='w-4 h-4' />
+                  </div>
+                  <span className='text-slate-500'>
                     Hyderabad, Telangana, India
                   </span>
                 </li>
                 <li className='flex items-center gap-3'>
-                  <Phone className='w-5 h-5 text-cyan-400' />
+                  <div className='p-1 border border-slate-100 rounded-md bg-slate-50 text-slate-400'>
+                    <Phone className='w-4 h-4' />
+                  </div>
                   <a
                     href='tel:+1234567890'
-                    className='text-gray-300 hover:text-cyan-300 transition-colors duration-300'
+                    className='text-slate-500 hover:text-primary transition-colors duration-300'
                   >
                     +91 9703114043
                   </a>
                 </li>
                 <li className='flex items-center gap-3'>
-                  <Mail className='w-5 h-5 text-cyan-400' />
+                  <div className='p-1 border border-slate-100 rounded-md bg-slate-50 text-slate-400'>
+                    <Mail className='w-4 h-4' />
+                  </div>
                   <a
                     href='mailto:vijaydigitalmarketingservice@gmail.com'
-                    className='text-gray-300 hover:text-cyan-300 transition-colors duration-300'
+                    className='text-slate-500 hover:text-primary transition-colors duration-300'
                   >
                     vijaydigitalmarketingservice@gmail.com
                   </a>
@@ -258,28 +239,28 @@ const Footer = () => {
       </div>
 
       {/* Copyright */}
-      <div className='border-t border-cyan-400/20'>
+      <div className='border-t border-slate-100 bg-slate-50/50'>
         <div className='container mx-auto px-4 py-6'>
           <div className='flex flex-col md:flex-row items-center justify-between gap-4'>
-            <p className='text-gray-400 text-sm'>
+            <p className='text-slate-500 text-sm'>
               © 2026 Vijay Digital Marketing Services. All rights reserved.
             </p>
             <div className='flex gap-6 text-sm'>
               <a
                 href='#'
-                className='text-gray-400 hover:text-cyan-300 transition-colors duration-300'
+                className='text-slate-500 hover:text-primary transition-colors duration-300'
               >
                 Privacy Policy
               </a>
               <a
                 href='#'
-                className='text-gray-400 hover:text-cyan-300 transition-colors duration-300'
+                className='text-slate-500 hover:text-primary transition-colors duration-300'
               >
                 Terms of Service
               </a>
               <a
                 href='#'
-                className='text-gray-400 hover:text-cyan-300 transition-colors duration-300'
+                className='text-slate-500 hover:text-primary transition-colors duration-300'
               >
                 Cookie Policy
               </a>

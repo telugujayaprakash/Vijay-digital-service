@@ -1,4 +1,5 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -49,21 +50,27 @@ const Contact = () => {
     setSubmitStatus("idle");
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+      // EmailJS credentials
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID as string;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string;
+
+      const templateParams = {
+        full_name: formData.name,
+        email: formData.email,
+        service_type: formData.service,
+        project_details: formData.message,
+        reply_to: formData.email,
+      };
+
+      await emailjs.send(serviceId, templateId, templateParams, {
+        publicKey: publicKey,
       });
 
-      if (response.ok) {
-        setSubmitStatus("success");
-        setFormData({ name: "", email: "", service: "", message: "" });
-      } else {
-        setSubmitStatus("error");
-      }
+      setSubmitStatus("success");
+      setFormData({ name: "", email: "", service: "", message: "" });
     } catch (error) {
+      console.error("Email sending failed:", error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -168,8 +175,8 @@ const Contact = () => {
       description: "Detailed project discussion",
       color: "from-orange-500 to-red-500",
       action: () =>
-        (window.location.href =
-          "mailto:vijaydigitalmarketingservice@gmail.com"),
+      (window.location.href =
+        "mailto:vijaydigitalmarketingservice@gmail.com"),
     },
   ];
 
@@ -380,14 +387,14 @@ const Contact = () => {
                       className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-300 text-slate-700 shadow-sm"
                     >
                       <option value="">Select a service</option>
-                      <option value="seo">SEO Optimization</option>
-                      <option value="webdev">Web Development</option>
-                      <option value="mobile">Mobile App Development</option>
-                      <option value="social">Social Media Marketing</option>
-                      <option value="youtube">YouTube Promotion</option>
-                      <option value="analytics">Analytics & Reporting</option>
-                      <option value="content">Content Marketing</option>
-                      <option value="other">Other Services</option>
+                      <option value="SEO Optimization">SEO Optimization</option>
+                      <option value="Web Development">Web Development</option>
+                      <option value="Mobile App Development">Mobile App Development</option>
+                      <option value="Social Media Marketing">Social Media Marketing</option>
+                      <option value="YouTube Promotion">YouTube Promotion</option>
+                      <option value="Analytics & Reporting">Analytics & Reporting</option>
+                      <option value="Content Marketing">Content Marketing</option>
+                      <option value="Other Services">Other Services</option>
                     </select>
                   </div>
 

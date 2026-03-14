@@ -1,7 +1,13 @@
 import { createRoot } from "react-dom/client";
+import Lenis from "lenis";
+import "lenis/dist/lenis.css";
 import App from "./App.tsx";
 import "./index.css";
 
+// Initialize Lenis for smooth scrolling
+const lenis = new Lenis({
+  autoRaf: true,
+});
 // Performance optimization: Preload critical resources
 const preloadCriticalResources = () => {
   // Preload critical images (hero images) - only the first one for LCP

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -36,6 +37,8 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
+    location: "",
     service: "",
     message: "",
   });
@@ -58,6 +61,8 @@ const Contact = () => {
       const templateParams = {
         full_name: formData.name,
         email: formData.email,
+        phone: formData.phone,
+        location: formData.location,
         service_type: formData.service,
         project_details: formData.message,
         reply_to: formData.email,
@@ -68,7 +73,7 @@ const Contact = () => {
       });
 
       setSubmitStatus("success");
-      setFormData({ name: "", email: "", service: "", message: "" });
+      setFormData({ name: "", email: "", phone: "", location: "", service: "", message: "" });
     } catch (error) {
       console.error("Email sending failed:", error);
       setSubmitStatus("error");
@@ -341,9 +346,27 @@ const Contact = () => {
               </p>
             </div>
 
-            <div className="max-w-4xl mx-auto">
-              <div className="card-soft p-8 md:p-8 md:p-6">
-                <form onSubmit={handleFormSubmit} className="space-y-6">
+            <div className="max-w-6xl mx-auto">
+              <div className="card-soft grid lg:grid-cols-2 overflow-hidden">
+                {/* Contact GIF Illustration */}
+                <div className="hidden lg:flex flex-col items-center justify-center p-12 bg-slate-50/50 relative border-r border-slate-100">
+                  <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/5 to-transparent pointer-events-none"></div>
+                  <h3 className="text-2xl font-bold text-slate-800 mb-4 z-10 text-center">Let's build something amazing together</h3>
+                  <p className="text-slate-500 mb-10 z-10 text-center max-w-sm">Whether you have a question about our services, pricing, or anything else, our team is ready to answer all your questions.</p>
+                  
+                  {/* Free Animated Contact Illustration */}
+                  <div className="relative z-10 w-full max-w-lg scale-110 mt-4">
+                    <DotLottieReact
+                      src="https://lottie.host/f920143e-fbb8-43be-9331-d52ff0cd77fd/qiCEsvIgt0.lottie"
+                      loop
+                      autoplay
+                    />
+                  </div>
+                </div>
+
+                {/* Form Section */}
+                <div className="p-8 md:p-10">
+                  <form onSubmit={handleFormSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-semibold mb-2 text-slate-700">
@@ -371,6 +394,37 @@ const Contact = () => {
                         required
                         className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-300 placeholder-slate-400 shadow-sm"
                         placeholder="your@email.com"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-semibold mb-2 text-slate-700">
+                        Phone Number *
+                      </label>
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-300 placeholder-slate-400 shadow-sm"
+                        placeholder="Your phone number"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold mb-2 text-slate-700">
+                        Location *
+                      </label>
+                      <input
+                        type="text"
+                        name="location"
+                        value={formData.location}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-300 placeholder-slate-400 shadow-sm"
+                        placeholder="City, State"
                       />
                     </div>
                   </div>
@@ -452,6 +506,7 @@ const Contact = () => {
                     )}
                   </Button>
                 </form>
+                </div>
               </div>
             </div>
           </div>

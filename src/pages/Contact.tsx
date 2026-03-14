@@ -1,62 +1,62 @@
-import { useState } from "react";
-import emailjs from "@emailjs/browser";
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
+import { useState } from 'react'
+import emailjs from '@emailjs/browser'
+import { DotLottieReact } from '@lottiefiles/dotlottie-react'
+import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
+import { Button } from '@/components/ui/button'
 import {
-  Mail,
-  Phone,
-  MapPin,
-  Clock,
-  MessageCircle,
-  Calendar,
+  // Mail,
+  // Phone,
+  // MapPin,
+  // Clock,
+  // MessageCircle,
+  // Calendar,
   Send,
   CheckCircle,
   AlertCircle,
   Loader2,
-  Search,
-  Code,
-  Smartphone,
-  Share2,
-  Youtube,
-  BarChart3,
-  PenTool,
-  Zap,
-  ArrowRight,
-  ChevronRight,
-  X,
-} from "lucide-react";
+  // Search,
+  // Code,
+  // Smartphone,
+  // Share2,
+  // Youtube,
+  // BarChart3,
+  // PenTool,
+  // Zap,
+  // ArrowRight,
+  // ChevronRight,
+  X
+} from 'lucide-react'
 
 const Contact = () => {
-  const [selectedService, setSelectedService] = useState<string | null>(null);
-  const [contactMethod, setContactMethod] = useState<string | null>(null);
-  const [showScheduler, setShowScheduler] = useState(false);
+  // const [selectedService, setSelectedService] = useState<string | null>(null)
+  // const [contactMethod, setContactMethod] = useState<string | null>(null)
+  const [showScheduler, setShowScheduler] = useState(false)
 
   // Contact form state
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    location: "",
-    service: "",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+    name: '',
+    email: '',
+    phone: '',
+    location: '',
+    service: '',
+    message: ''
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<
-    "idle" | "success" | "error"
-  >("idle");
+    'idle' | 'success' | 'error'
+  >('idle')
 
   const handleFormSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus("idle");
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
 
     try {
       // EmailJS credentials
-      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID as string;
-      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string;
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID as string
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string
 
       const templateParams = {
         full_name: formData.name,
@@ -65,155 +65,162 @@ const Contact = () => {
         location: formData.location,
         service_type: formData.service,
         project_details: formData.message,
-        reply_to: formData.email,
-      };
+        reply_to: formData.email
+      }
 
       await emailjs.send(serviceId, templateId, templateParams, {
-        publicKey: publicKey,
-      });
+        publicKey: publicKey
+      })
 
-      setSubmitStatus("success");
-      setFormData({ name: "", email: "", phone: "", location: "", service: "", message: "" });
+      setSubmitStatus('success')
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        location: '',
+        service: '',
+        message: ''
+      })
     } catch (error) {
-      console.error("Email sending failed:", error);
-      setSubmitStatus("error");
+      console.error('Email sending failed:', error)
+      setSubmitStatus('error')
     } finally {
-      setIsSubmitting(false);
+      setIsSubmitting(false)
     }
-  };
+  }
 
   const handleInputChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >,
+    >
   ) => {
-    setFormData((prev) => ({
+    setFormData(prev => ({
       ...prev,
-      [e.target.name]: e.target.value,
-    }));
-  };
+      [e.target.name]: e.target.value
+    }))
+  }
 
-  const services = [
-    {
-      id: "seo",
-      name: "SEO Optimization",
-      icon: Search,
-      color: "from-blue-500 to-cyan-500",
-    },
-    {
-      id: "webdev",
-      name: "Web Development",
-      icon: Code,
-      color: "from-purple-500 to-pink-500",
-    },
-    {
-      id: "mobile",
-      name: "Mobile App Dev",
-      icon: Smartphone,
-      color: "from-green-500 to-emerald-500",
-    },
-    {
-      id: "social",
-      name: "Social Media",
-      icon: Share2,
-      color: "from-cyan-500 to-blue-500",
-    },
-    {
-      id: "youtube",
-      name: "YouTube Promotion",
-      icon: Youtube,
-      color: "from-red-500 to-pink-500",
-    },
-    {
-      id: "analytics",
-      name: "Analytics",
-      icon: BarChart3,
-      color: "from-orange-500 to-red-500",
-    },
-    {
-      id: "content",
-      name: "Content Marketing",
-      icon: PenTool,
-      color: "from-indigo-500 to-purple-500",
-    },
-    {
-      id: "other",
-      name: "Other Services",
-      icon: Zap,
-      color: "from-yellow-500 to-orange-500",
-    },
-  ];
+  // const services = [
+  //   {
+  //     id: "seo",
+  //     name: "SEO Optimization",
+  //     icon: Search,
+  //     color: "from-blue-500 to-cyan-500",
+  //   },
+  //   {
+  //     id: "webdev",
+  //     name: "Web Development",
+  //     icon: Code,
+  //     color: "from-purple-500 to-pink-500",
+  //   },
+  //   {
+  //     id: "mobile",
+  //     name: "Mobile App Dev",
+  //     icon: Smartphone,
+  //     color: "from-green-500 to-emerald-500",
+  //   },
+  //   {
+  //     id: "social",
+  //     name: "Social Media",
+  //     icon: Share2,
+  //     color: "from-cyan-500 to-blue-500",
+  //   },
+  //   {
+  //     id: "youtube",
+  //     name: "YouTube Promotion",
+  //     icon: Youtube,
+  //     color: "from-red-500 to-pink-500",
+  //   },
+  //   {
+  //     id: "analytics",
+  //     name: "Analytics",
+  //     icon: BarChart3,
+  //     color: "from-orange-500 to-red-500",
+  //   },
+  //   {
+  //     id: "content",
+  //     name: "Content Marketing",
+  //     icon: PenTool,
+  //     color: "from-indigo-500 to-purple-500",
+  //   },
+  //   {
+  //     id: "other",
+  //     name: "Other Services",
+  //     icon: Zap,
+  //     color: "from-yellow-500 to-orange-500",
+  //   },
+  // ];
 
-  const quickActions = [
-    {
-      id: "whatsapp",
-      name: "WhatsApp Chat",
-      icon: MessageCircle,
-      description: "Instant chat with our team",
-      color: "from-green-500 to-emerald-500",
-      action: () =>
-        window.open(
-          "https://wa.me/919703114043?text=Hi%20Vijay%20Digital%20Services,%20I%27m%20interested%20in%20your%20services",
-          "_blank",
-        ),
-    },
-    {
-      id: "call",
-      name: "Phone Call",
-      icon: Phone,
-      description: "Speak directly with experts",
-      color: "from-blue-500 to-cyan-500",
-      action: () => (window.location.href = "tel:+919703114043"),
-    },
-    {
-      id: "schedule",
-      name: "Book a Call",
-      icon: Calendar,
-      description: "Schedule a consultation",
-      color: "from-purple-500 to-pink-500",
-      action: () => setShowScheduler(true),
-    },
-    {
-      id: "email",
-      name: "Send Email",
-      icon: Mail,
-      description: "Detailed project discussion",
-      color: "from-orange-500 to-red-500",
-      action: () =>
-      (window.location.href =
-        "mailto:vijaydigitalmarketingservice@gmail.com"),
-    },
-  ];
+  // const quickActions = [
+  //   {
+  //     id: "whatsapp",
+  //     name: "WhatsApp Chat",
+  //     icon: MessageCircle,
+  //     description: "Instant chat with our team",
+  //     color: "from-green-500 to-emerald-500",
+  //     action: () =>
+  //       window.open(
+  //         "https://wa.me/919703114043?text=Hi%20Vijay%20Digital%20Services,%20I%27m%20interested%20in%20your%20services",
+  //         "_blank",
+  //       ),
+  //   },
+  //   {
+  //     id: "call",
+  //     name: "Phone Call",
+  //     icon: Phone,
+  //     description: "Speak directly with experts",
+  //     color: "from-blue-500 to-cyan-500",
+  //     action: () => (window.location.href = "tel:+919703114043"),
+  //   },
+  //   {
+  //     id: "schedule",
+  //     name: "Book a Call",
+  //     icon: Calendar,
+  //     description: "Schedule a consultation",
+  //     color: "from-purple-500 to-pink-500",
+  //     action: () => setShowScheduler(true),
+  //   },
+  //   {
+  //     id: "email",
+  //     name: "Send Email",
+  //     icon: Mail,
+  //     description: "Detailed project discussion",
+  //     color: "from-orange-500 to-red-500",
+  //     action: () =>
+  //     (window.location.href =
+  //       "mailto:vijaydigitalmarketingservice@gmail.com"),
+  //   },
+  // ];
 
   return (
-    <div className="min-h-screen bg-background text-slate-800">
+    <div className='min-h-screen bg-background text-slate-800'>
       <Navbar />
-      <main className="pt-20">
+      <main className='pt-20'>
         {/* Hero */}
-        <section className="py-12 md:py-8 bg-slate-50 relative overflow-hidden">
-          {/* Background decoration */}
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl translate-y-1/2"></div>
+        {/*  <section className='py-12 md:py-8 bg-slate-50 relative overflow-hidden'>
+           Background decoration 
+          <div className='absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2'></div>
+          <div className='absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl translate-y-1/2'></div>
 
-          <div className="container mx-auto px-4 text-center relative z-10 animate-slide-in">
-            <span className="inline-flex items-center px-6 py-2 rounded-full bg-white border border-slate-200 mb-6 shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-primary mr-2"></span>
-              <span className="text-sm font-semibold text-slate-600">
+          <div className='container mx-auto px-4 text-center relative z-10 animate-slide-in'>
+            <span className='inline-flex items-center px-6 py-2 rounded-full bg-white border border-slate-200 mb-6 shadow-sm'>
+              <span className='w-2 h-2 rounded-full bg-primary mr-2'></span>
+              <span className='text-sm font-semibold text-slate-600'>
                 Get In Touch
               </span>
             </span>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-slate-800 tracking-tight">
-              Multiple Ways to <span className="text-primary">Connect</span>
+            <h1 className='text-4xl md:text-5xl font-bold mb-6 text-slate-800 tracking-tight'>
+              Multiple Ways to <span className='text-primary'>Connect</span>
             </h1>
-            <p className="text-lg text-slate-500 max-w-2xl mx-auto">
+            <p className='text-lg text-slate-500 max-w-2xl mx-auto'>
               Choose instant contact methods or fill out our detailed contact
               form. We're here to help with your digital marketing needs.
             </p>
-          </div>
-        </section>
+          </div> 
+        </section>*/}
 
         {/* Quick Actions Section */}
-        <section className="py-10 md:py-14 bg-background relative z-10">
+        {/* <section className="py-10 md:py-14 bg-background relative z-10">
           <div className="container mx-auto px-4">
             <div className="text-center mb-8 md:mb-8">
               <h2 className="text-3xl font-bold mb-4 text-slate-800 tracking-tight">
@@ -254,7 +261,7 @@ const Contact = () => {
           </div>
         </section>
 
-        {/* Service-Based Contact */}
+         Service-Based Contact 
         <section className="py-10 md:py-14 bg-slate-50 relative overflow-hidden">
           <div className="container mx-auto px-4 relative z-10">
             <div className="text-center mb-8 md:mb-8">
@@ -331,33 +338,39 @@ const Contact = () => {
               </div>
             )}
           </div>
-        </section>
+        </section> */}
 
         {/* Traditional Contact Form */}
-        <section className="py-12 md:py-8 bg-background relative z-10">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-8 md:mb-8">
-              <h2 className="text-3xl font-bold mb-4 text-slate-800 tracking-tight">
-                Or Send Us a Detailed Message
+        <section className='py-12 md:py-8 bg-background relative z-10'>
+          <div className='container mx-auto px-4'>
+            <div className='text-center mb-8 md:mb-8'>
+              <h2 className='text-3xl font-bold mb-4 text-slate-800 tracking-tight'>
+                Send Us a <span className='text-primary'>Detailed Message</span>
               </h2>
-              <p className="text-slate-500 max-w-2xl mx-auto">
+              <p className='text-slate-500 max-w-2xl mx-auto'>
                 Prefer to send a detailed message? Fill out our contact form and
                 we'll get back to you within 24 hours.
               </p>
             </div>
 
-            <div className="max-w-6xl mx-auto">
-              <div className="card-soft grid lg:grid-cols-2 overflow-hidden">
+            <div className='max-w-6xl mx-auto'>
+              <div className='card-soft grid lg:grid-cols-2 overflow-hidden'>
                 {/* Contact GIF Illustration */}
-                <div className="hidden lg:flex flex-col items-center justify-center p-12 bg-slate-50/50 relative border-r border-slate-100">
-                  <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/5 to-transparent pointer-events-none"></div>
-                  <h3 className="text-2xl font-bold text-slate-800 mb-4 z-10 text-center">Let's build something amazing together</h3>
-                  <p className="text-slate-500 mb-10 z-10 text-center max-w-sm">Whether you have a question about our services, pricing, or anything else, our team is ready to answer all your questions.</p>
-                  
+                <div className='hidden lg:flex flex-col items-center justify-center p-12 bg-slate-50/50 relative border-r border-slate-100'>
+                  <div className='absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/5 to-transparent pointer-events-none'></div>
+                  <h3 className='text-2xl font-bold text-slate-800 mb-4 z-10 text-center'>
+                    Let's build something amazing together
+                  </h3>
+                  <p className='text-slate-500 mb-10 z-10 text-center max-w-sm'>
+                    Whether you have a question about our services, pricing, or
+                    anything else, our team is ready to answer all your
+                    questions.
+                  </p>
+
                   {/* Free Animated Contact Illustration */}
-                  <div className="relative z-10 w-full max-w-lg scale-110 mt-4">
+                  <div className='relative z-10 w-full max-w-lg scale-110 mt-4'>
                     <DotLottieReact
-                      src="https://lottie.host/f920143e-fbb8-43be-9331-d52ff0cd77fd/qiCEsvIgt0.lottie"
+                      src='https://lottie.host/f920143e-fbb8-43be-9331-d52ff0cd77fd/qiCEsvIgt0.lottie'
                       loop
                       autoplay
                     />
@@ -365,147 +378,159 @@ const Contact = () => {
                 </div>
 
                 {/* Form Section */}
-                <div className="p-8 md:p-10">
-                  <form onSubmit={handleFormSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
+                <div className='p-8 md:p-10'>
+                  <form onSubmit={handleFormSubmit} className='space-y-6'>
+                    <div className='grid md:grid-cols-2 gap-6'>
+                      <div>
+                        <label className='block text-sm font-semibold mb-2 text-slate-700'>
+                          Full Name *
+                        </label>
+                        <input
+                          type='text'
+                          name='name'
+                          value={formData.name}
+                          onChange={handleInputChange}
+                          required
+                          className='w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-300 placeholder-slate-400 shadow-sm'
+                          placeholder='Enter your full name'
+                        />
+                      </div>
+                      <div>
+                        <label className='block text-sm font-semibold mb-2 text-slate-700'>
+                          Email Address *
+                        </label>
+                        <input
+                          type='email'
+                          name='email'
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          required
+                          className='w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-300 placeholder-slate-400 shadow-sm'
+                          placeholder='your@email.com'
+                        />
+                      </div>
+                    </div>
+
+                    <div className='grid md:grid-cols-2 gap-6'>
+                      <div>
+                        <label className='block text-sm font-semibold mb-2 text-slate-700'>
+                          Phone Number *
+                        </label>
+                        <input
+                          type='tel'
+                          name='phone'
+                          value={formData.phone}
+                          onChange={handleInputChange}
+                          required
+                          className='w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-300 placeholder-slate-400 shadow-sm'
+                          placeholder='Your phone number'
+                        />
+                      </div>
+                      <div>
+                        <label className='block text-sm font-semibold mb-2 text-slate-700'>
+                          Location *
+                        </label>
+                        <input
+                          type='text'
+                          name='location'
+                          value={formData.location}
+                          onChange={handleInputChange}
+                          required
+                          className='w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-300 placeholder-slate-400 shadow-sm'
+                          placeholder='City, State'
+                        />
+                      </div>
+                    </div>
+
                     <div>
-                      <label className="block text-sm font-semibold mb-2 text-slate-700">
-                        Full Name *
+                      <label className='block text-sm font-semibold mb-2 text-slate-700'>
+                        Service Type *
                       </label>
-                      <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
+                      <select
+                        name='service'
+                        value={formData.service}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-300 placeholder-slate-400 shadow-sm"
-                        placeholder="Enter your full name"
-                      />
+                        className='w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-300 text-slate-700 shadow-sm'
+                      >
+                        <option value=''>Select a service</option>
+                        <option value='SEO Optimization'>
+                          SEO Optimization
+                        </option>
+                        <option value='Web Development'>Web Development</option>
+                        <option value='Mobile App Development'>
+                          Mobile App Development
+                        </option>
+                        <option value='Social Media Marketing'>
+                          Social Media Marketing
+                        </option>
+                        <option value='YouTube Promotion'>
+                          YouTube Promotion
+                        </option>
+                        <option value='Analytics & Reporting'>
+                          Analytics & Reporting
+                        </option>
+                        <option value='Content Marketing'>
+                          Content Marketing
+                        </option>
+                        <option value='Other Services'>Other Services</option>
+                      </select>
                     </div>
+
                     <div>
-                      <label className="block text-sm font-semibold mb-2 text-slate-700">
-                        Email Address *
+                      <label className='block text-sm font-semibold mb-2 text-slate-700'>
+                        Project Details *
                       </label>
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
+                      <textarea
+                        name='message'
+                        value={formData.message}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-300 placeholder-slate-400 shadow-sm"
-                        placeholder="your@email.com"
+                        rows={6}
+                        className='w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-300 placeholder-slate-400 shadow-sm resize-none'
+                        placeholder='Please describe your project requirements, goals, budget, and timeline...'
                       />
                     </div>
-                  </div>
 
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-semibold mb-2 text-slate-700">
-                        Phone Number *
-                      </label>
-                      <input
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-300 placeholder-slate-400 shadow-sm"
-                        placeholder="Your phone number"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-semibold mb-2 text-slate-700">
-                        Location *
-                      </label>
-                      <input
-                        type="text"
-                        name="location"
-                        value={formData.location}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-300 placeholder-slate-400 shadow-sm"
-                        placeholder="City, State"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold mb-2 text-slate-700">
-                      Service Type *
-                    </label>
-                    <select
-                      name="service"
-                      value={formData.service}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-300 text-slate-700 shadow-sm"
-                    >
-                      <option value="">Select a service</option>
-                      <option value="SEO Optimization">SEO Optimization</option>
-                      <option value="Web Development">Web Development</option>
-                      <option value="Mobile App Development">Mobile App Development</option>
-                      <option value="Social Media Marketing">Social Media Marketing</option>
-                      <option value="YouTube Promotion">YouTube Promotion</option>
-                      <option value="Analytics & Reporting">Analytics & Reporting</option>
-                      <option value="Content Marketing">Content Marketing</option>
-                      <option value="Other Services">Other Services</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold mb-2 text-slate-700">
-                      Project Details *
-                    </label>
-                    <textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      required
-                      rows={6}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all duration-300 placeholder-slate-400 shadow-sm resize-none"
-                      placeholder="Please describe your project requirements, goals, budget, and timeline..."
-                    />
-                  </div>
-
-                  {/* Submit Status Messages */}
-                  {submitStatus === "success" && (
-                    <div className="flex items-center gap-3 p-4 rounded-xl bg-green-50 border border-green-100 text-green-700">
-                      <CheckCircle className="w-5 h-5 flex-shrink-0" />
-                      <p className="text-sm font-medium">
-                        Thank you! Your message has been sent successfully.
-                        We'll get back to you within 24 hours.
-                      </p>
-                    </div>
-                  )}
-
-                  {submitStatus === "error" && (
-                    <div className="flex items-center gap-3 p-4 rounded-xl bg-red-50 border border-red-100 text-red-700">
-                      <AlertCircle className="w-5 h-5 flex-shrink-0" />
-                      <p className="text-sm font-medium">
-                        Sorry, there was an error sending your message. Please
-                        try again or contact us directly.
-                      </p>
-                    </div>
-                  )}
-
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full btn-primary-soft h-auto py-4 text-base shadow-sm"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <Loader2 className="w-5 h-5 animate-spin mr-2" />
-                        Sending Message...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="w-5 h-5 mr-4" />
-                        Send Message
-                      </>
+                    {/* Submit Status Messages */}
+                    {submitStatus === 'success' && (
+                      <div className='flex items-center gap-3 p-4 rounded-xl bg-green-50 border border-green-100 text-green-700'>
+                        <CheckCircle className='w-5 h-5 flex-shrink-0' />
+                        <p className='text-sm font-medium'>
+                          Thank you! Your message has been sent successfully.
+                          We'll get back to you within 24 hours.
+                        </p>
+                      </div>
                     )}
-                  </Button>
-                </form>
+
+                    {submitStatus === 'error' && (
+                      <div className='flex items-center gap-3 p-4 rounded-xl bg-red-50 border border-red-100 text-red-700'>
+                        <AlertCircle className='w-5 h-5 flex-shrink-0' />
+                        <p className='text-sm font-medium'>
+                          Sorry, there was an error sending your message. Please
+                          try again or contact us directly.
+                        </p>
+                      </div>
+                    )}
+
+                    <Button
+                      type='submit'
+                      disabled={isSubmitting}
+                      className='w-full btn-primary-soft h-auto py-4 text-base shadow-sm'
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className='w-5 h-5 animate-spin mr-2' />
+                          Sending Message...
+                        </>
+                      ) : (
+                        <>
+                          <Send className='w-5 h-5 mr-4' />
+                          Send Message
+                        </>
+                      )}
+                    </Button>
+                  </form>
                 </div>
               </div>
             </div>
@@ -559,42 +584,42 @@ const Contact = () => {
 
         {/* Scheduler Modal */}
         {showScheduler && (
-          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-            <div className="bg-white rounded-2xl p-8 max-w-md w-full border border-cyan-200/50 shadow-2xl">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-xl font-bold text-gray-900">
+          <div className='fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4'>
+            <div className='bg-white rounded-2xl p-8 max-w-md w-full border border-cyan-200/50 shadow-2xl'>
+              <div className='flex items-center justify-between mb-6'>
+                <h3 className='text-xl font-bold text-gray-900'>
                   Schedule a Call
                 </h3>
                 <button
                   onClick={() => setShowScheduler(false)}
-                  className="p-2 rounded-lg hover:bg-gray-100 transition-colors duration-300"
+                  className='p-2 rounded-lg hover:bg-gray-100 transition-colors duration-300'
                 >
-                  <X className="w-5 h-5 text-gray-500" />
+                  <X className='w-5 h-5 text-gray-500' />
                 </button>
               </div>
 
-              <div className="space-y-4">
-                <p className="text-gray-600">
+              <div className='space-y-4'>
+                <p className='text-gray-600'>
                   Choose a convenient time for your free consultation call:
                 </p>
 
-                <div className="grid grid-cols-2 gap-3">
+                <div className='grid grid-cols-2 gap-3'>
                   {[
-                    "Today 2:00 PM",
-                    "Today 4:00 PM",
-                    "Tomorrow 10:00 AM",
-                    "Tomorrow 2:00 PM",
-                  ].map((time) => (
+                    'Today 2:00 PM',
+                    'Today 4:00 PM',
+                    'Tomorrow 10:00 AM',
+                    'Tomorrow 2:00 PM'
+                  ].map(time => (
                     <button
                       key={time}
                       onClick={() => {
                         window.open(
-                          "https://calendly.com/vijaydigitalservices",
-                          "_blank",
-                        );
-                        setShowScheduler(false);
+                          'https://calendly.com/vijaydigitalservices',
+                          '_blank'
+                        )
+                        setShowScheduler(false)
                       }}
-                      className="p-3 rounded-lg bg-gradient-to-r from-cyan-50 to-blue-50 hover:from-cyan-100 hover:to-blue-100 border border-cyan-200/50 hover:border-cyan-400/70 transition-all duration-300 text-sm font-medium text-gray-700 hover:text-cyan-600"
+                      className='p-3 rounded-lg bg-gradient-to-r from-cyan-50 to-blue-50 hover:from-cyan-100 hover:to-blue-100 border border-cyan-200/50 hover:border-cyan-400/70 transition-all duration-300 text-sm font-medium text-gray-700 hover:text-cyan-600'
                     >
                       {time}
                     </button>
@@ -604,12 +629,12 @@ const Contact = () => {
                 <button
                   onClick={() => {
                     window.open(
-                      "https://calendly.com/vijaydigitalservices",
-                      "_blank",
-                    );
-                    setShowScheduler(false);
+                      'https://calendly.com/vijaydigitalservices',
+                      '_blank'
+                    )
+                    setShowScheduler(false)
                   }}
-                  className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold py-3 px-6 rounded-xl shadow-lg shadow-cyan-400/30 hover:shadow-xl hover:shadow-cyan-400/50 hover:-translate-y-1 transition-all duration-300"
+                  className='w-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold py-3 px-6 rounded-xl shadow-lg shadow-cyan-400/30 hover:shadow-xl hover:shadow-cyan-400/50 hover:-translate-y-1 transition-all duration-300'
                 >
                   View Full Calendar
                 </button>
@@ -620,7 +645,7 @@ const Contact = () => {
       </main>
       <Footer />
     </div>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact
